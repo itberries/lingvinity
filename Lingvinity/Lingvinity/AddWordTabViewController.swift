@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  AddWordTabViewController.swift
 //  Lingvinity
 //
 //  Created by Ivan Nemshilov on 24/10/2018.
@@ -8,13 +8,12 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class AddWordTabViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the view.
     }
-
 
 }
 

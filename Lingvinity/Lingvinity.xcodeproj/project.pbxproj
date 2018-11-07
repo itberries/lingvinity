@@ -8,15 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		1B26BFB52180F49100DF5325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26BFB42180F49100DF5325 /* AppDelegate.swift */; };
-		1B26BFB72180F49100DF5325 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26BFB62180F49100DF5325 /* FirstViewController.swift */; };
-		1B26BFB92180F49100DF5325 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26BFB82180F49100DF5325 /* SecondViewController.swift */; };
+		1B26BFB72180F49100DF5325 /* AddWordTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26BFB62180F49100DF5325 /* AddWordTabViewController.swift */; };
+		1B26BFB92180F49100DF5325 /* DictionaryTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26BFB82180F49100DF5325 /* DictionaryTabViewController.swift */; };
 		1B26BFBC2180F49100DF5325 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B26BFBA2180F49100DF5325 /* Main.storyboard */; };
 		1B26BFBE2180F49200DF5325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B26BFBD2180F49200DF5325 /* Assets.xcassets */; };
 		1B26BFC12180F49200DF5325 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B26BFBF2180F49200DF5325 /* LaunchScreen.storyboard */; };
 		1B26BFCC2180F49200DF5325 /* LingvinityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26BFCB2180F49200DF5325 /* LingvinityTests.swift */; };
 		1B26BFD72180F49200DF5325 /* LingvinityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26BFD62180F49200DF5325 /* LingvinityUITests.swift */; };
-		1B26BFE521905F4600DF5325 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26BFE421905F4600DF5325 /* ThirdViewController.swift */; };
-		1B26BFE721905FF800DF5325 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26BFE621905FF800DF5325 /* FourthViewController.swift */; };
+		1B26BFE521905F4600DF5325 /* TrainingTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26BFE421905F4600DF5325 /* TrainingTabViewController.swift */; };
+		1B26BFE721905FF800DF5325 /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26BFE621905FF800DF5325 /* SettingsTabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +39,8 @@
 /* Begin PBXFileReference section */
 		1B26BFB12180F49100DF5325 /* Lingvinity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lingvinity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B26BFB42180F49100DF5325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1B26BFB62180F49100DF5325 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		1B26BFB82180F49100DF5325 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		1B26BFB62180F49100DF5325 /* AddWordTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordTabViewController.swift; sourceTree = "<group>"; };
+		1B26BFB82180F49100DF5325 /* DictionaryTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTabViewController.swift; sourceTree = "<group>"; };
 		1B26BFBB2180F49100DF5325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B26BFBD2180F49200DF5325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B26BFC02180F49200DF5325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,8 +51,8 @@
 		1B26BFD22180F49200DF5325 /* LingvinityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LingvinityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B26BFD62180F49200DF5325 /* LingvinityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LingvinityUITests.swift; sourceTree = "<group>"; };
 		1B26BFD82180F49200DF5325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B26BFE421905F4600DF5325 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		1B26BFE621905FF800DF5325 /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		1B26BFE421905F4600DF5325 /* TrainingTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingTabViewController.swift; sourceTree = "<group>"; };
+		1B26BFE621905FF800DF5325 /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,14 +104,14 @@
 			isa = PBXGroup;
 			children = (
 				1B26BFB42180F49100DF5325 /* AppDelegate.swift */,
-				1B26BFB62180F49100DF5325 /* FirstViewController.swift */,
-				1B26BFB82180F49100DF5325 /* SecondViewController.swift */,
+				1B26BFB62180F49100DF5325 /* AddWordTabViewController.swift */,
+				1B26BFB82180F49100DF5325 /* DictionaryTabViewController.swift */,
+				1B26BFE621905FF800DF5325 /* SettingsTabViewController.swift */,
+				1B26BFE421905F4600DF5325 /* TrainingTabViewController.swift */,
 				1B26BFBA2180F49100DF5325 /* Main.storyboard */,
-				1B26BFE621905FF800DF5325 /* FourthViewController.swift */,
 				1B26BFBD2180F49200DF5325 /* Assets.xcassets */,
 				1B26BFBF2180F49200DF5325 /* LaunchScreen.storyboard */,
 				1B26BFC22180F49200DF5325 /* Info.plist */,
-				1B26BFE421905F4600DF5325 /* ThirdViewController.swift */,
 			);
 			path = Lingvinity;
 			sourceTree = "<group>";
@@ -265,11 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B26BFB92180F49100DF5325 /* SecondViewController.swift in Sources */,
+				1B26BFB92180F49100DF5325 /* DictionaryTabViewController.swift in Sources */,
 				1B26BFB52180F49100DF5325 /* AppDelegate.swift in Sources */,
-				1B26BFE521905F4600DF5325 /* ThirdViewController.swift in Sources */,
-				1B26BFB72180F49100DF5325 /* FirstViewController.swift in Sources */,
-				1B26BFE721905FF800DF5325 /* FourthViewController.swift in Sources */,
+				1B26BFE521905F4600DF5325 /* TrainingTabViewController.swift in Sources */,
+				1B26BFB72180F49100DF5325 /* AddWordTabViewController.swift in Sources */,
+				1B26BFE721905FF800DF5325 /* SettingsTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

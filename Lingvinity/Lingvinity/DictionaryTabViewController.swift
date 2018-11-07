@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  DictionaryTabViewController.swift
 //  Lingvinity
 //
 //  Created by Ivan Nemshilov on 24/10/2018.
@@ -8,13 +8,12 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class DictionaryTabViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the view.
     }
-
 
 }
 
