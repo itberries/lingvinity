@@ -30,7 +30,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="album" translatesAutoresizingMaskIntoConstraints="NO" id="8cX-kh-7EI">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8cX-kh-7EI">
                         <rect key="frame" x="22" y="12" width="125" height="123"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
@@ -47,13 +47,11 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="180" height="200"/>
             <connections>
+                <outlet property="albumCover" destination="8cX-kh-7EI" id="gYG-8Q-ux1"/>
                 <outlet property="albumNameLabel" destination="Id5-Yd-JSQ" id="Ozj-k1-mHo"/>
                 <outlet property="numberOfWordsLabel" destination="I3d-ma-LL6" id="Hp9-uX-UBq"/>
             </connections>
             <point key="canvasLocation" x="240.80000000000001" y="177.21139430284859"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="album" width="204.80000305175781" height="204.80000305175781"/>
-    </resources>
 </document>

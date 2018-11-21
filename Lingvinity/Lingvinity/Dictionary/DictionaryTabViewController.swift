@@ -12,13 +12,16 @@ class DictionaryTabViewController: UIViewController {
 
     let dictionaryAlbumCellIdentifier = "dictionaryAlbumCollectionViewCell"
     let createNewAlbumCellIdentifier = "createNewAlbumCollectionViewCell"
-    let numberOfAlbums = 3
+    
+    var albums = [AlbumModel]()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        fillAlbums()
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -27,6 +30,16 @@ class DictionaryTabViewController: UIViewController {
         collectionView.register(UINib.init(nibName: "CreateNewAlbumCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: createNewAlbumCellIdentifier)
     }
 
+    func fillAlbums() {
+        for i in 1...3 {
+            let album = AlbumModel()
+            album.name = "Album name \(i)"
+            album.numberOfWords = i
+            album.cover = UIImage(named: "albumCover")
+            albums.append(album)
+        }
+    }
+    
 }
 
 extension DictionaryTabViewController : UICollectionViewDataSource {
@@ -36,14 +49,16 @@ extension DictionaryTabViewController : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numberOfAlbums + 1;
+        return albums.count + 1;
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if (indexPath.row != (numberOfAlbums)) {
+        if (indexPath.row != (albums.count)) {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: dictionaryAlbumCellIdentifier, for: indexPath) as! DictionaryAlbumCollectionViewCell
-            cell.albumNameLabel.text = "Album name \(indexPath.row + 1)"
-            cell.numberOfWordsLabel.text = "\(indexPath.row + 1) words"
+            let album = albums[indexPath.row]
+            cell.albumNameLabel.text = album.name
+            cell.numberOfWordsLabel.text = "\(String(describing: album.numberOfWords!)) words"
+            cell.albumCover.image = album.cover
             return cell
         }
         else {

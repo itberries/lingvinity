@@ -131,19 +131,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Dictionary" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="110" y="299" width="157" height="43"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by DictionaryViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="71" y="350" width="233" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="58o-gD-Edm">
                                 <rect key="frame" x="20" y="30" width="335" height="598"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -168,14 +155,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="71" id="1OG-vH-ij1"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="41A-KR-BAZ"/>
-                            <constraint firstItem="zEq-FU-wV5" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="110" id="K3f-jy-4yV"/>
                             <constraint firstAttribute="trailing" secondItem="58o-gD-Edm" secondAttribute="trailing" constant="20" symbolic="YES" id="Mrx-5n-Fcx"/>
                             <constraint firstItem="58o-gD-Edm" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" constant="10" id="Xjv-y1-RTg"/>
-                            <constraint firstItem="zEq-FU-wV5" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="279" id="Ztj-bF-eG8"/>
                             <constraint firstItem="58o-gD-Edm" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="10" id="jWV-Ya-XKu"/>
-                            <constraint firstItem="58o-gD-Edm" firstAttribute="centerX" secondItem="NDk-cv-Gan" secondAttribute="centerX" id="ki9-l0-jRg"/>
                             <constraint firstItem="58o-gD-Edm" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" symbolic="YES" id="qaO-2m-Of4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>

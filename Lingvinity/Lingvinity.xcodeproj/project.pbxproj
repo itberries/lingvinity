@@ -21,6 +21,7 @@
 		5D3BA23521A56928002A1ECE /* CreateNewAlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D3BA23321A56928002A1ECE /* CreateNewAlbumCollectionViewCell.xib */; };
 		5D3BA23821A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3BA23621A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift */; };
 		5D3BA23921A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D3BA23721A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib */; };
+		5D3BA23B21A586D9002A1ECE /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3BA23A21A586D9002A1ECE /* AlbumModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		5D3BA23321A56928002A1ECE /* CreateNewAlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateNewAlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		5D3BA23621A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		5D3BA23721A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DictionaryAlbumCollectionViewCell.xib; sourceTree = "<group>"; };
+		5D3BA23A21A586D9002A1ECE /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				5D3BA23321A56928002A1ECE /* CreateNewAlbumCollectionViewCell.xib */,
 				5D3BA23621A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift */,
 				5D3BA23721A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib */,
+				5D3BA23A21A586D9002A1ECE /* AlbumModel.swift */,
 			);
 			path = Dictionary;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				1B26BFB52180F49100DF5325 /* AppDelegate.swift in Sources */,
 				5D3BA23421A56928002A1ECE /* CreateNewAlbumCollectionViewCell.swift in Sources */,
 				1B26BFE521905F4600DF5325 /* TrainingTabViewController.swift in Sources */,
+				5D3BA23B21A586D9002A1ECE /* AlbumModel.swift in Sources */,
 				1B26BFB72180F49100DF5325 /* AddWordTabViewController.swift in Sources */,
 				1B26BFE721905FF800DF5325 /* SettingsTabViewController.swift in Sources */,
 			);

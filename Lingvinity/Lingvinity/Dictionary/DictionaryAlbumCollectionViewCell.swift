@@ -12,6 +12,7 @@ class DictionaryAlbumCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var albumNameLabel: UILabel!
     @IBOutlet weak var numberOfWordsLabel: UILabel!
+    @IBOutlet weak var albumCover: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
