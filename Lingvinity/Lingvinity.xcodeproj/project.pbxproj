@@ -22,6 +22,7 @@
 		5D3BA23821A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3BA23621A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift */; };
 		5D3BA23921A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D3BA23721A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib */; };
 		5D3BA23B21A586D9002A1ECE /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3BA23A21A586D9002A1ECE /* AlbumModel.swift */; };
+		6C22187321A4A1010046F5F4 /* StorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C22187221A4A1010046F5F4 /* StorageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		5D3BA23621A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		5D3BA23721A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DictionaryAlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		5D3BA23A21A586D9002A1ECE /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
+		6C22187221A4A1010046F5F4 /* StorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				1B26BFBD2180F49200DF5325 /* Assets.xcassets */,
 				1B26BFBF2180F49200DF5325 /* LaunchScreen.storyboard */,
 				1B26BFC22180F49200DF5325 /* Info.plist */,
+				6C22187221A4A1010046F5F4 /* StorageModel.swift */,
 			);
 			path = Lingvinity;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				5D3BA23421A56928002A1ECE /* CreateNewAlbumCollectionViewCell.swift in Sources */,
 				1B26BFE521905F4600DF5325 /* TrainingTabViewController.swift in Sources */,
 				5D3BA23B21A586D9002A1ECE /* AlbumModel.swift in Sources */,
+				6C22187321A4A1010046F5F4 /* StorageModel.swift in Sources */,
 				1B26BFB72180F49100DF5325 /* AddWordTabViewController.swift in Sources */,
 				1B26BFE721905FF800DF5325 /* SettingsTabViewController.swift in Sources */,
 			);
