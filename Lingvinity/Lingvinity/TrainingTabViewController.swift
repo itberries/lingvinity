@@ -11,6 +11,7 @@ import UIKit
 class TrainingTabViewController: UIViewController {
     @IBOutlet weak var value: UILabel!
     
+    @IBOutlet weak var result: UILabel!
     @IBOutlet weak var word: UILabel!
     
     @IBOutlet weak var buttonYes: UIButton!
@@ -28,6 +29,7 @@ class TrainingTabViewController: UIViewController {
         // Do any additional setup after loading the view.
         word.text = storage.gameWordBatch[index].name
         value.text = storage.gameWordBatch[index].value
+        result.text = "...."
     }
     
     @IBAction func buttonYesClick(_ sender: UIButton) {
@@ -35,8 +37,10 @@ class TrainingTabViewController: UIViewController {
         print(correctWordBatch[word.text!]!)
         if(value.text == correctWordBatch[word.text!]!){
             score = score + 1
+            result.text = "٩(｡•́‿•̀｡)۶"
         }else{
             score = score - 1
+            result.text = "(︶︹︺)"
         }
         scoreGame.text = String(score)
         index = (index + 1) % storage.gameWordBatch.count
@@ -47,8 +51,10 @@ class TrainingTabViewController: UIViewController {
     @IBAction func buttonNoClick(_ sender: UIButton) {
         if(value.text != correctWordBatch[word.text!]!){
             score = score + 1
+            result.text = "٩(｡•́‿•̀｡)۶"
         }else{
             score = score - 1
+            result.text = "(︶︹︺)"
         }
         scoreGame.text! = String(score)
         index = (index + 1) % storage.gameWordBatch.count
