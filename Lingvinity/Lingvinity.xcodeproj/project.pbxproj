@@ -17,6 +17,10 @@
 		1B26BFD72180F49200DF5325 /* LingvinityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26BFD62180F49200DF5325 /* LingvinityUITests.swift */; };
 		1B26BFE521905F4600DF5325 /* TrainingTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26BFE421905F4600DF5325 /* TrainingTabViewController.swift */; };
 		1B26BFE721905FF800DF5325 /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26BFE621905FF800DF5325 /* SettingsTabViewController.swift */; };
+		5D3BA23421A56928002A1ECE /* CreateNewAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3BA23221A56928002A1ECE /* CreateNewAlbumCollectionViewCell.swift */; };
+		5D3BA23521A56928002A1ECE /* CreateNewAlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D3BA23321A56928002A1ECE /* CreateNewAlbumCollectionViewCell.xib */; };
+		5D3BA23821A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3BA23621A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift */; };
+		5D3BA23921A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D3BA23721A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		1B26BFD82180F49200DF5325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B26BFE421905F4600DF5325 /* TrainingTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingTabViewController.swift; sourceTree = "<group>"; };
 		1B26BFE621905FF800DF5325 /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
+		5D3BA23221A56928002A1ECE /* CreateNewAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		5D3BA23321A56928002A1ECE /* CreateNewAlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateNewAlbumCollectionViewCell.xib; sourceTree = "<group>"; };
+		5D3BA23621A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		5D3BA23721A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DictionaryAlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +111,9 @@
 		1B26BFB32180F49100DF5325 /* Lingvinity */ = {
 			isa = PBXGroup;
 			children = (
+				5DC21EC0219C65230087ABFA /* Dictionary */,
 				1B26BFB42180F49100DF5325 /* AppDelegate.swift */,
 				1B26BFB62180F49100DF5325 /* AddWordTabViewController.swift */,
-				1B26BFB82180F49100DF5325 /* DictionaryTabViewController.swift */,
 				1B26BFE621905FF800DF5325 /* SettingsTabViewController.swift */,
 				1B26BFE421905F4600DF5325 /* TrainingTabViewController.swift */,
 				1B26BFBA2180F49100DF5325 /* Main.storyboard */,
@@ -132,6 +140,18 @@
 				1B26BFD82180F49200DF5325 /* Info.plist */,
 			);
 			path = LingvinityUITests;
+			sourceTree = "<group>";
+		};
+		5DC21EC0219C65230087ABFA /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				1B26BFB82180F49100DF5325 /* DictionaryTabViewController.swift */,
+				5D3BA23221A56928002A1ECE /* CreateNewAlbumCollectionViewCell.swift */,
+				5D3BA23321A56928002A1ECE /* CreateNewAlbumCollectionViewCell.xib */,
+				5D3BA23621A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift */,
+				5D3BA23721A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib */,
+			);
+			path = Dictionary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +261,8 @@
 				1B26BFC12180F49200DF5325 /* LaunchScreen.storyboard in Resources */,
 				1B26BFBE2180F49200DF5325 /* Assets.xcassets in Resources */,
 				1B26BFBC2180F49100DF5325 /* Main.storyboard in Resources */,
+				5D3BA23921A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib in Resources */,
+				5D3BA23521A56928002A1ECE /* CreateNewAlbumCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +288,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B26BFB92180F49100DF5325 /* DictionaryTabViewController.swift in Sources */,
+				5D3BA23821A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift in Sources */,
 				1B26BFB52180F49100DF5325 /* AppDelegate.swift in Sources */,
+				5D3BA23421A56928002A1ECE /* CreateNewAlbumCollectionViewCell.swift in Sources */,
 				1B26BFE521905F4600DF5325 /* TrainingTabViewController.swift in Sources */,
 				1B26BFB72180F49100DF5325 /* AddWordTabViewController.swift in Sources */,
 				1B26BFE721905FF800DF5325 /* SettingsTabViewController.swift in Sources */,

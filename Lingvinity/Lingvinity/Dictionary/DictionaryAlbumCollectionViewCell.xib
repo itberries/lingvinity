@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dictionaryAlbumCollectionViewCell" id="gTV-IL-0wX" customClass="DictionaryAlbumCollectionViewCell" customModule="Lingvinity" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Id5-Yd-JSQ">
+                        <rect key="frame" x="13" y="145" width="154" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3d-ma-LL6">
+                        <rect key="frame" x="13" y="170" width="154" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Id5-Yd-JSQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="13" id="R8T-bL-HnG"/>
+                <constraint firstItem="Id5-Yd-JSQ" firstAttribute="leading" secondItem="I3d-ma-LL6" secondAttribute="leading" id="UYh-rF-O3n"/>
+                <constraint firstItem="I3d-ma-LL6" firstAttribute="top" secondItem="Id5-Yd-JSQ" secondAttribute="bottom" constant="4" id="aja-cq-PHW"/>
+                <constraint firstItem="Id5-Yd-JSQ" firstAttribute="trailing" secondItem="I3d-ma-LL6" secondAttribute="trailing" id="mmx-6i-CAB"/>
+                <constraint firstAttribute="bottom" secondItem="Id5-Yd-JSQ" secondAttribute="bottom" constant="34" id="ufS-TH-VmH"/>
+                <constraint firstItem="Id5-Yd-JSQ" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="yPa-O9-Vzf"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="180" height="200"/>
+            <connections>
+                <outlet property="albumNameLabel" destination="Id5-Yd-JSQ" id="Ozj-k1-mHo"/>
+                <outlet property="numberOfWordsLabel" destination="I3d-ma-LL6" id="Hp9-uX-UBq"/>
+            </connections>
+            <point key="canvasLocation" x="241.59999999999999" y="177.21139430284859"/>
+        </collectionViewCell>
+    </objects>
+</document>
