@@ -32,12 +32,17 @@ class DictionaryTabViewController: UIViewController {
 
     func fillAlbums() {
         for i in 1...3 {
-            let album = AlbumModel()
-            album.name = "Album name \(i)"
-            album.numberOfWords = i
-            album.cover = UIImage(named: "albumCover")
+            let album = createNewAlbum(withName: "Album name \(i)", withWords: i)
             albums.append(album)
         }
+    }
+    
+    func createNewAlbum(withName name: String, withWords words: Int) -> AlbumModel {
+        let album = AlbumModel()
+        album.name = name
+        album.numberOfWords = words
+        album.cover = UIImage(named: "albumCover")
+        return album
     }
     
 }
@@ -72,7 +77,33 @@ extension DictionaryTabViewController : UICollectionViewDataSource {
 extension DictionaryTabViewController : UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Selected item \(indexPath.item + 1)")
+        print("Selected item \(indexPath.item)")
+        
+        if (indexPath.row == albums.count) {
+            showCreateNewAlbumPopUp();
+        }
+        
+    }
+    
+    func showCreateNewAlbumPopUp() {
+        
+        let alert = UIAlertController(title: "Create new album", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        alert.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Input album name here..."
+        })
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            
+            if let name = alert.textFields?.first?.text {
+                let newAlbum = self.createNewAlbum(withName: name, withWords: 0)
+                self.albums.append(newAlbum)
+                self.collectionView.reloadData()
+            }
+        }))
+        
+        self.present(alert, animated: true)
     }
     
 }
