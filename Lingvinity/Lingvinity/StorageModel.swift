@@ -37,4 +37,4 @@ var correctWordBatch = ["dog": "собака",
                         "sky": "небо",
                         "key": "ключ",
                         "mother": "мама",
-                        "Wednesday": "среда"]
+                        "wednesday": "среда"]
