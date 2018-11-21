@@ -17,6 +17,7 @@ class StorageModel{
         gameWordBatch += [(name: "sky", value: "небо")]
         gameWordBatch += [(name: "key", value: "собака")]
         gameWordBatch += [(name: "mother", value: "мама")]
+        gameWordBatch += [(name: "wednesday", value: "среда")]
     }
     /*
     // MARK: - Navigation
@@ -29,15 +30,11 @@ class StorageModel{
     */
 }
 
-//var gameWordBatch = ["dog": "собака",
-//                     "cat": "слоник",
-//                     "table": "стол",
-//                     "laptop": "принтер"]
-
 
 
 
 var correctWordBatch = ["dog": "собака",
                         "sky": "небо",
                         "key": "ключ",
-                        "mother": "мама"]
+                        "mother": "мама",
+                        "wednesday": "среда"]
