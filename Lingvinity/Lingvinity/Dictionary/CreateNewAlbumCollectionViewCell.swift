@@ -10,12 +10,15 @@ import UIKit
 
 class CreateNewAlbumCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         self.layer.cornerRadius = 20
         self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.green.cgColor
+        self.layer.borderColor = UIColor.gray.cgColor
+        //imageView.image = UIImage(
     }
 
 }

@@ -18,7 +18,7 @@ class DictionaryAlbumCollectionViewCell: UICollectionViewCell {
         // Initialization code
         self.layer.cornerRadius = 20
         self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.magenta.cgColor
+        self.layer.borderColor = UIColor.darkGray.cgColor
     }
 
 }
