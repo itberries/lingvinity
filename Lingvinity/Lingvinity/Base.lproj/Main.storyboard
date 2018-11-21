@@ -134,7 +134,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8UZ-xS-ERa">
-                                <rect key="frame" x="127" y="77" width="147" height="21"/>
+                                <rect key="frame" x="106" y="77" width="168" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -177,7 +177,6 @@
                             <constraint firstItem="dfg-Q5-qga" firstAttribute="centerX" secondItem="st2-4k-Zuz" secondAttribute="centerX" id="eMQ-f0-VYC"/>
                             <constraint firstItem="7Es-Ck-9IM" firstAttribute="leading" secondItem="dJU-uu-Nrr" secondAttribute="leading" constant="106" id="hAL-Xq-0el"/>
                             <constraint firstItem="dfg-Q5-qga" firstAttribute="leading" secondItem="dJU-uu-Nrr" secondAttribute="leading" constant="106" id="ivu-9G-aQA"/>
-                            <constraint firstItem="oKg-q4-xae" firstAttribute="leading" secondItem="Ndz-n8-fKt" secondAttribute="trailing" constant="53" id="lFY-E2-jJR"/>
                             <constraint firstItem="Ndz-n8-fKt" firstAttribute="leading" secondItem="dJU-uu-Nrr" secondAttribute="leading" constant="35" id="nVO-8y-MFJ"/>
                             <constraint firstItem="dJU-uu-Nrr" firstAttribute="trailing" secondItem="AzE-YA-uP3" secondAttribute="trailing" constant="29" id="wSq-gA-yEl"/>
                             <constraint firstItem="Ndz-n8-fKt" firstAttribute="baseline" secondItem="oKg-q4-xae" secondAttribute="firstBaseline" id="z83-Of-iVt"/>
