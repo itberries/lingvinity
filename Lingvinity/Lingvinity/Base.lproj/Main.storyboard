@@ -21,17 +21,17 @@
                                 <rect key="frame" x="20" y="44" width="54" height="30"/>
                                 <state key="normal" title="Camera"/>
                                 <connections>
-                                    <action selector="CameraAction:" destination="9pv-A4-QxB" eventType="touchUpInside" id="IEa-dU-ugt"/>
+                                    <action selector="openCamera:" destination="9pv-A4-QxB" eventType="touchUpInside" id="IEa-dU-ugt"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m8K-0t-8dd">
-                                <rect key="frame" x="16" y="237" width="386" height="402"/>
+                                <rect key="frame" x="14" y="210" width="386" height="402"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCb-fb-5E9">
                                 <rect key="frame" x="302" y="44" width="92" height="30"/>
                                 <state key="normal" title="Photo Library"/>
                                 <connections>
-                                    <action selector="PhotoLibraryAction:" destination="9pv-A4-QxB" eventType="touchUpInside" id="FN4-5w-inC"/>
+                                    <action selector="openPhotoLibrary:" destination="9pv-A4-QxB" eventType="touchUpInside" id="FN4-5w-inC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Add word" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
@@ -41,27 +41,38 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBm-JF-0xZ">
+                                <rect key="frame" x="42" y="656" width="331" height="64"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="m8K-0t-8dd" secondAttribute="trailing" constant="12" id="3II-X9-Ax6"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="m8K-0t-8dd" secondAttribute="trailing" constant="14" id="3II-X9-Ax6"/>
                             <constraint firstItem="hCb-fb-5E9" firstAttribute="baseline" secondItem="TjM-jY-mrJ" secondAttribute="baseline" id="3cR-ya-fdb"/>
                             <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
                             <constraint firstItem="TjM-jY-mrJ" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="8cF-xD-fQH"/>
+                            <constraint firstItem="wBm-JF-0xZ" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="42" id="Ax2-j9-q1Z"/>
                             <constraint firstItem="TjM-jY-mrJ" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="ImY-JF-scB"/>
-                            <constraint firstItem="m8K-0t-8dd" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="VCi-mq-K4W"/>
+                            <constraint firstItem="m8K-0t-8dd" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="14" id="VCi-mq-K4W"/>
                             <constraint firstItem="hCb-fb-5E9" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="ZWh-Yw-aZf"/>
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" constant="290.5" id="exm-UA-ej4"/>
-                            <constraint firstItem="m8K-0t-8dd" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="58" id="r5v-lB-0Ai"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="m8K-0t-8dd" secondAttribute="bottom" constant="174" id="rg7-4h-tEH"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="wBm-JF-0xZ" secondAttribute="bottom" constant="93" id="gvp-pe-cFe"/>
+                            <constraint firstItem="wBm-JF-0xZ" firstAttribute="centerX" secondItem="m8K-0t-8dd" secondAttribute="centerX" id="nzs-E3-pHj"/>
+                            <constraint firstItem="m8K-0t-8dd" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="31" id="r5v-lB-0Ai"/>
+                            <constraint firstItem="wBm-JF-0xZ" firstAttribute="top" secondItem="m8K-0t-8dd" secondAttribute="bottom" constant="44" id="r8Z-wp-RHD"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="m8K-0t-8dd" secondAttribute="bottom" constant="201" id="rg7-4h-tEH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add word" image="addWord" selectedImage="addWord" id="acW-dT-cKf"/>
                     <connections>
-                        <outlet property="Camera" destination="TjM-jY-mrJ" id="V2E-Dg-A59"/>
-                        <outlet property="ImageDisplay" destination="m8K-0t-8dd" id="cjO-rf-R4B"/>
-                        <outlet property="PhotoLibrary" destination="hCb-fb-5E9" id="Ekz-WJ-aHp"/>
+                        <outlet property="camera" destination="TjM-jY-mrJ" id="V2E-Dg-A59"/>
+                        <outlet property="photoImageView" destination="m8K-0t-8dd" id="cjO-rf-R4B"/>
+                        <outlet property="photoLibrary" destination="hCb-fb-5E9" id="Ekz-WJ-aHp"/>
+                        <outlet property="recognitionResult" destination="wBm-JF-0xZ" id="Atz-yV-CHu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>

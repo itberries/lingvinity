@@ -19,19 +19,8 @@ class StorageModel{
         gameWordBatch += [(name: "mother", value: "мама")]
         gameWordBatch += [(name: "wednesday", value: "среда")]
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 }
-
-
-
 
 var correctWordBatch = ["dog": "собака",
                         "sky": "небо",
