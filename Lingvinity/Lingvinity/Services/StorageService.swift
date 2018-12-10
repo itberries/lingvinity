@@ -22,6 +22,7 @@ class StorageService {
     //Колонки для таблицы words
     let wordId  = Expression<Int>("word_id")
     let wordValue = Expression<String>("word_value")
+    let image = Expression<String>("image")
     let wordDefinition = Expression<String>("word_definition")
     //-----------------------------------------
     
@@ -29,7 +30,7 @@ class StorageService {
     //-----------------------------------------
     //Создаем таблицу  groups и колонки
     let groupsTable = Table("groups")
-    //Колонки для таблицы words
+    //Колонки для таблицы groups
     let groupId  = Expression<Int>("group_id")
     let groupValue = Expression<String>("group_value")
     //-----------------------------------------
@@ -46,20 +47,26 @@ class StorageService {
         initDataBaseWork()
     }
     
+ 
+    
+    
     //Необходимые действия по установке соединения с БД
     func initDataBaseWork(){
         do {
-            let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-            //создаем файл words.sqlite3 - хранится локально
-            let fileUrl = documentDirectory.appendingPathComponent("words").appendingPathExtension("sqlite")
-            //создаем соединение с базой данной
-            let database = try Connection(fileUrl.path)
+          
+            let fileUrl = Bundle.main.path(forResource: "words", ofType: "sqlite")
+            //создаем соединение с базой данных
+            let database = try Connection(fileUrl ?? "words.sqlite")
+            //print(fileUrl ?? "words.sqlite")
             self.database = database
             
         } catch  {
             print(error)
         }
+     
     }
+    
+  
     
     //Таблица уже создана
     func createTableWords() { // [wordId | wordValue| wordDefinition]
@@ -78,17 +85,17 @@ class StorageService {
         }
     }
     
-    //Возможно, что потребуется добавить к таблице words еще один столбец image_id
-//    func alterTableWords() { // [wordId | wordValue| wordDefinition|image_id]
-//        print("ADD NEW COLUMN TABLE")
-//        let imageId  = Expression<Int>("image_id")
-//        do{
-//            try self.database.run(self.wordsTable.addColumn(suffix)
-//            print("Add new Column to Table Words")
-//        }catch{
-//            print(error)
-//        }
-//    }
+    //Alter table -> add column
+    func alterTableWords() { // [wordId | wordValue| wordDefinition|image]
+        print("ADD NEW COLUMN TABLE")
+        let image  = Expression<String?>("image")
+        do{
+            try self.database.run(self.wordsTable.addColumn(image))
+            print("Add new Column to Table Words")
+        }catch{
+            print(error)
+        }
+    }
     
     //Таблица уже создана
     func createTableGroups() { // [groupId | groupValue]
@@ -124,8 +131,8 @@ class StorageService {
     }
     
     //insert в таблицу words -> слово на английском и перевод
-    func addValueToTableWords(wordValue : String, wordDefinition : String ){
-        let insertWord = self.wordsTable.insert(self.wordValue <- wordValue, self.wordDefinition<-wordDefinition)
+    func addValueToTableWords(wordValue : String, wordDefinition : String, image : String){
+        let insertWord = self.wordsTable.insert(self.wordValue <- wordValue, self.wordDefinition<-wordDefinition, self.image<-image)
         
         do{
             try self.database.run(insertWord)

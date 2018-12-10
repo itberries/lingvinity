@@ -33,6 +33,7 @@ class TrainingTabViewController: UIViewController {
         word.text = storage.gameWordBatch[index].name
         value.text = storage.gameWordBatch[index].value
         result.text = "...."
+        dataBaseService.addValueToTableWords(wordValue: "cat", wordDefinition: "кошка", image : "image.png")
         
         //Список всех записей из БД с названиями групп/названий альбомов
         dataBaseService.listGroups()

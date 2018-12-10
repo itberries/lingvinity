@@ -25,9 +25,8 @@
 		5D47CC5B21ADCD0300D655BD /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5D47CC5A21ADCD0300D655BD /* Inceptionv3.mlmodel */; };
 		6C22187321A4A1010046F5F4 /* StorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C22187221A4A1010046F5F4 /* StorageModel.swift */; };
 		6C4897FC21BD71830083ECC1 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4897FB21BD71830083ECC1 /* StorageService.swift */; };
-		6C48BD6C21BDC0B40083ECC1 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C48BD5F21BDC0AD0083ECC1 /* SQLite.framework */; };
-		6C48BD6D21BDC0B80083ECC1 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C48BD5F21BDC0AD0083ECC1 /* SQLite.framework */; };
-		6C48BD6E21BDC0B80083ECC1 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C48BD5F21BDC0AD0083ECC1 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6CD2045421BEE20C00625171 /* words.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 6CD2045321BEE20C00625171 /* words.sqlite */; };
+		89BCB825896064DD1D388A31 /* Pods_Lingvinity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F825ED2A9199215F7EC731 /* Pods_Lingvinity.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,62 +44,6 @@
 			remoteGlobalIDString = 1B26BFB02180F49100DF5325;
 			remoteInfo = Lingvinity;
 		};
-		6C48BD5E21BDC0AD0083ECC1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6C48BD5421BDC0AD0083ECC1 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EE247AD31C3F04ED00AE3E12;
-			remoteInfo = "SQLite iOS";
-		};
-		6C48BD6021BDC0AD0083ECC1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6C48BD5421BDC0AD0083ECC1 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EE247ADD1C3F04ED00AE3E12;
-			remoteInfo = "SQLiteTests iOS";
-		};
-		6C48BD6221BDC0AD0083ECC1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6C48BD5421BDC0AD0083ECC1 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EE247B3C1C3F3ED000AE3E12;
-			remoteInfo = "SQLite Mac";
-		};
-		6C48BD6421BDC0AD0083ECC1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6C48BD5421BDC0AD0083ECC1 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EE247B451C3F3ED000AE3E12;
-			remoteInfo = "SQLiteTests Mac";
-		};
-		6C48BD6621BDC0AD0083ECC1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6C48BD5421BDC0AD0083ECC1 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 03A65E5A1C6BB0F50062603F;
-			remoteInfo = "SQLite tvOS";
-		};
-		6C48BD6821BDC0AD0083ECC1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6C48BD5421BDC0AD0083ECC1 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 03A65E631C6BB0F60062603F;
-			remoteInfo = "SQLiteTests tvOS";
-		};
-		6C48BD6A21BDC0AD0083ECC1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6C48BD5421BDC0AD0083ECC1 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A121AC451CA35C79005A31D1;
-			remoteInfo = "SQLite watchOS";
-		};
-		6C48BD6F21BDC0B80083ECC1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6C48BD5421BDC0AD0083ECC1 /* SQLite.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = EE247AD21C3F04ED00AE3E12;
-			remoteInfo = "SQLite iOS";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -110,7 +53,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6C48BD6E21BDC0B80083ECC1 /* SQLite.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,6 +60,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		08F825ED2A9199215F7EC731 /* Pods_Lingvinity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lingvinity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B26BFB12180F49100DF5325 /* Lingvinity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lingvinity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B26BFB42180F49100DF5325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B26BFB62180F49100DF5325 /* AddWordTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordTabViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +77,7 @@
 		1B26BFD82180F49200DF5325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B26BFE421905F4600DF5325 /* TrainingTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingTabViewController.swift; sourceTree = "<group>"; };
 		1B26BFE621905FF800DF5325 /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
+		59EA1B305C8F46DD98E5CA19 /* Pods-Lingvinity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingvinity.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lingvinity/Pods-Lingvinity.release.xcconfig"; sourceTree = "<group>"; };
 		5D3BA23221A56928002A1ECE /* CreateNewAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		5D3BA23321A56928002A1ECE /* CreateNewAlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateNewAlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		5D3BA23621A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -142,7 +86,8 @@
 		5D47CC5A21ADCD0300D655BD /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		6C22187221A4A1010046F5F4 /* StorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageModel.swift; sourceTree = "<group>"; };
 		6C4897FB21BD71830083ECC1 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
-		6C48BD5421BDC0AD0083ECC1 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../Desktop/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
+		6CD2045321BEE20C00625171 /* words.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = words.sqlite; sourceTree = "<group>"; };
+		91CAC6DA397B69757DD3B306 /* Pods-Lingvinity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingvinity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lingvinity/Pods-Lingvinity.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,8 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C48BD6D21BDC0B80083ECC1 /* SQLite.framework in Frameworks */,
-				6C48BD6C21BDC0B40083ECC1 /* SQLite.framework in Frameworks */,
+				89BCB825896064DD1D388A31 /* Pods_Lingvinity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,12 +119,13 @@
 		1B26BFA82180F49100DF5325 = {
 			isa = PBXGroup;
 			children = (
-				6C48BD5421BDC0AD0083ECC1 /* SQLite.xcodeproj */,
+				6CD2045321BEE20C00625171 /* words.sqlite */,
 				1B26BFB32180F49100DF5325 /* Lingvinity */,
 				1B26BFCA2180F49200DF5325 /* LingvinityTests */,
 				1B26BFD52180F49200DF5325 /* LingvinityUITests */,
 				1B26BFB22180F49100DF5325 /* Products */,
 				6C48BC0521BDBC1E0083ECC1 /* Frameworks */,
+				863CDAC1930C014A05C47461 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -255,22 +200,18 @@
 		6C48BC0521BDBC1E0083ECC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				08F825ED2A9199215F7EC731 /* Pods_Lingvinity.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6C48BD5521BDC0AD0083ECC1 /* Products */ = {
+		863CDAC1930C014A05C47461 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6C48BD5F21BDC0AD0083ECC1 /* SQLite.framework */,
-				6C48BD6121BDC0AD0083ECC1 /* SQLiteTests iOS.xctest */,
-				6C48BD6321BDC0AD0083ECC1 /* SQLite.framework */,
-				6C48BD6521BDC0AD0083ECC1 /* SQLiteTests Mac.xctest */,
-				6C48BD6721BDC0AD0083ECC1 /* SQLite.framework */,
-				6C48BD6921BDC0AD0083ECC1 /* SQLiteTests tvOS.xctest */,
-				6C48BD6B21BDC0AD0083ECC1 /* SQLite.framework */,
+				91CAC6DA397B69757DD3B306 /* Pods-Lingvinity.debug.xcconfig */,
+				59EA1B305C8F46DD98E5CA19 /* Pods-Lingvinity.release.xcconfig */,
 			);
-			name = Products;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,15 +221,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B26BFDB2180F49200DF5325 /* Build configuration list for PBXNativeTarget "Lingvinity" */;
 			buildPhases = (
+				019B593198B6AE5E54436F1E /* [CP] Check Pods Manifest.lock */,
 				1B26BFAD2180F49100DF5325 /* Sources */,
 				1B26BFAE2180F49100DF5325 /* Frameworks */,
 				1B26BFAF2180F49100DF5325 /* Resources */,
 				6C48BC9221BDBE530083ECC1 /* Embed Frameworks */,
+				2B2FC209A8C0D14A46F1ABA3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6C48BD7021BDC0B80083ECC1 /* PBXTargetDependency */,
 			);
 			name = Lingvinity;
 			productName = Lingvinity;
@@ -337,6 +279,9 @@
 		1B26BFA92180F49100DF5325 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "IT-Berries";
@@ -365,12 +310,6 @@
 			mainGroup = 1B26BFA82180F49100DF5325;
 			productRefGroup = 1B26BFB22180F49100DF5325 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 6C48BD5521BDC0AD0083ECC1 /* Products */;
-					ProjectRef = 6C48BD5421BDC0AD0083ECC1 /* SQLite.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				1B26BFB02180F49100DF5325 /* Lingvinity */,
@@ -380,64 +319,13 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		6C48BD5F21BDC0AD0083ECC1 /* SQLite.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SQLite.framework;
-			remoteRef = 6C48BD5E21BDC0AD0083ECC1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6C48BD6121BDC0AD0083ECC1 /* SQLiteTests iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SQLiteTests iOS.xctest";
-			remoteRef = 6C48BD6021BDC0AD0083ECC1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6C48BD6321BDC0AD0083ECC1 /* SQLite.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SQLite.framework;
-			remoteRef = 6C48BD6221BDC0AD0083ECC1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6C48BD6521BDC0AD0083ECC1 /* SQLiteTests Mac.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SQLiteTests Mac.xctest";
-			remoteRef = 6C48BD6421BDC0AD0083ECC1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6C48BD6721BDC0AD0083ECC1 /* SQLite.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SQLite.framework;
-			remoteRef = 6C48BD6621BDC0AD0083ECC1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6C48BD6921BDC0AD0083ECC1 /* SQLiteTests tvOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SQLiteTests tvOS.xctest";
-			remoteRef = 6C48BD6821BDC0AD0083ECC1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6C48BD6B21BDC0AD0083ECC1 /* SQLite.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SQLite.framework;
-			remoteRef = 6C48BD6A21BDC0AD0083ECC1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		1B26BFAF2180F49100DF5325 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1B26BFC12180F49200DF5325 /* LaunchScreen.storyboard in Resources */,
+				6CD2045421BEE20C00625171 /* words.sqlite in Resources */,
 				1B26BFBE2180F49200DF5325 /* Assets.xcassets in Resources */,
 				1B26BFBC2180F49100DF5325 /* Main.storyboard in Resources */,
 				5D3BA23921A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib in Resources */,
@@ -460,6 +348,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		019B593198B6AE5E54436F1E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Lingvinity-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2B2FC209A8C0D14A46F1ABA3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Lingvinity/Pods-Lingvinity-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lingvinity/Pods-Lingvinity-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1B26BFAD2180F49100DF5325 /* Sources */ = {
@@ -508,11 +443,6 @@
 			isa = PBXTargetDependency;
 			target = 1B26BFB02180F49100DF5325 /* Lingvinity */;
 			targetProxy = 1B26BFD32180F49200DF5325 /* PBXContainerItemProxy */;
-		};
-		6C48BD7021BDC0B80083ECC1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "SQLite iOS";
-			targetProxy = 6C48BD6F21BDC0B80083ECC1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -654,6 +584,7 @@
 		};
 		1B26BFDC2180F49200DF5325 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91CAC6DA397B69757DD3B306 /* Pods-Lingvinity.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -674,6 +605,7 @@
 		};
 		1B26BFDD2180F49200DF5325 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59EA1B305C8F46DD98E5CA19 /* Pods-Lingvinity.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
