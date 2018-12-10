@@ -77,7 +77,12 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
             return
         }
         
-        recognitionResult.text = "\(prediction.classLabel)."
+        //recognitionResult.text = "\(prediction.classLabel)."
+        let predictionString = "\(prediction.classLabel)."
+        let predictionArray = predictionString.components(separatedBy: ", ")
+        for word in predictionArray {
+            print(word)
+        }
     }
     
     func convertImageFormat(for image: UIImage) -> (newImage: UIImage, pixelBuffer: CVPixelBuffer)? {
