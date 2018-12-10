@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SQLite
 
 class TrainingTabViewController: UIViewController {
     @IBOutlet weak var value: UILabel!
@@ -24,13 +25,24 @@ class TrainingTabViewController: UIViewController {
     @IBOutlet weak var scoreGame: UILabel!
     let storage = StorageModel()
     
+    let dataBaseService = StorageService()//сервис для работы с базой данных
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         word.text = storage.gameWordBatch[index].name
         value.text = storage.gameWordBatch[index].value
         result.text = "...."
+        //dataBaseService.addValueToTableWords(wordValue: "cat", wordDefinition: "кошка", image : "image.png")
+        
+        //Список всех записей из БД с названиями групп/названий альбомов
+        dataBaseService.listGroups()
+        
+        //Список всех записей из БД с имеющимся словарем
+        dataBaseService.listWords()
     }
+  
+    
     
     @IBAction func buttonYesClick(_ sender: UIButton) {
         print(word.text!)

@@ -1,0 +1,6 @@
+framework module Pods_Lingvinity {
+  umbrella header "Pods-Lingvinity-umbrella.h"
+
+  export *
+  module * { export * }
+}
