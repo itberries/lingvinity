@@ -132,14 +132,16 @@ class StorageService {
     }
     
     //insert в таблицу words -> слово на английском и перевод
-    func addValueToTableWords(wordValue : String, wordDefinition : String, image : String){
-        let insertWord = self.wordsTable.insert(self.wordValue <- wordValue, self.wordDefinition<-wordDefinition, self.image<-image)
+    func addValueToTableWords(wordValue : String, wordDefinition : String, image : String) -> Int? {
+        let insertWord = self.wordsTable.insert(self.wordValue <- wordValue, self.wordDefinition <- wordDefinition, self.image <- image)
         
         do{
-            try self.database.run(insertWord)
-            print("inserted word")
+            let insertedId = try self.database.run(insertWord)
+            print("inserted word with id \(insertedId)")
+            return Int(insertedId)
         }catch{
             print(error)
+            return nil
         }
     }
     

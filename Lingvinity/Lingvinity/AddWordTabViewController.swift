@@ -58,9 +58,14 @@ class AddWordTabViewController :
     
     @IBAction func saveToDictionary(_ sender: Any) {
         if (selectedWord != nil) {
-            dataBaseService.addValueToTableWords(wordValue: selectedWord!.value, wordDefinition: selectedWord!.translatedValue, image: selectedWord!.imageName)
-            imageStorage.save(image: selectedWord!.image, withName: selectedWord!.imageName)
-            print("Saved to dictionary")
+            if let wordId = dataBaseService.addValueToTableWords(wordValue: selectedWord!.value, wordDefinition: selectedWord!.translatedValue, image: selectedWord!.imageName) {
+                // MARK: помещаем в альбом Все
+                dataBaseService.addValueToTableWordsToGroups(wordId: wordId, groupId: 1)
+                imageStorage.save(image: selectedWord!.image, withName: selectedWord!.imageName)
+                print("Saved word '\(selectedWord!.value)' to dictionary")
+            } else {
+                print("Can't save word '\(selectedWord!.value)' to dictionary")
+            }
         }
     }
 }
