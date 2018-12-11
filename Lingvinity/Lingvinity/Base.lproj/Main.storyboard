@@ -24,10 +24,11 @@
                                     <action selector="openCamera:" destination="9pv-A4-QxB" eventType="touchUpInside" id="IEa-dU-ugt"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m8K-0t-8dd">
-                                <rect key="frame" x="15" y="174" width="384" height="410"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m8K-0t-8dd">
+                                <rect key="frame" x="95" y="174" width="224" height="224"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="410" id="YOD-4h-V3H"/>
+                                    <constraint firstAttribute="width" constant="224" id="Kz9-jO-Q57"/>
+                                    <constraint firstAttribute="height" constant="224" id="SFZ-Pg-3lq"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCb-fb-5E9">
@@ -61,7 +62,6 @@
                         <constraints>
                             <constraint firstItem="hCb-fb-5E9" firstAttribute="baseline" secondItem="TjM-jY-mrJ" secondAttribute="baseline" id="3cR-ya-fdb"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="TjM-jY-mrJ" secondAttribute="bottom" constant="40" id="4zH-Tc-dsC"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="m8K-0t-8dd" secondAttribute="trailing" constant="15" id="6sL-kS-92O"/>
                             <constraint firstItem="TjM-jY-mrJ" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="8cF-xD-fQH"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="10" id="9Ew-aR-nI7"/>
                             <constraint firstItem="TjM-jY-mrJ" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="ImY-JF-scB"/>
@@ -69,9 +69,9 @@
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="wBm-JF-0xZ" secondAttribute="trailing" constant="10" id="Mb5-yh-P5Z"/>
                             <constraint firstItem="wBm-JF-0xZ" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="10" id="WVa-cg-KMD"/>
                             <constraint firstItem="hCb-fb-5E9" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="ZWh-Yw-aZf"/>
-                            <constraint firstItem="m8K-0t-8dd" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="15" id="dRQ-wt-3Te"/>
-                            <constraint firstItem="m8K-0t-8dd" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="30" id="fN8-1S-bnx"/>
+                            <constraint firstItem="m8K-0t-8dd" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="30" id="d5G-Ah-GoU"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="wBm-JF-0xZ" secondAttribute="bottom" constant="30" id="il8-9m-rmO"/>
+                            <constraint firstItem="m8K-0t-8dd" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="uXX-V6-0Ei"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
