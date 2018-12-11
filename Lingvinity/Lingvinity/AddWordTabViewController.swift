@@ -19,6 +19,7 @@ class AddWordTabViewController :
     @IBOutlet weak var recognitionResult: UILabel!
     
     var model: Inceptionv3!
+    let imageStorage = ImageStorageService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,14 +71,14 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
         if convertionResult == nil {
             return
         }
-        
         photoImageView.image = convertionResult?.newImage
         
         guard let prediction = try? model.prediction(image: (convertionResult?.pixelBuffer)!) else {
             return
         }
-        
         recognitionResult.text = "\(prediction.classLabel)."
+        
+        imageStorage.save(image: convertionResult!.newImage, withName: "1")
     }
     
     func convertImageFormat(for image: UIImage) -> (newImage: UIImage, pixelBuffer: CVPixelBuffer)? {
