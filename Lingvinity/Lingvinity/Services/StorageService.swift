@@ -16,7 +16,7 @@ class StorageService {
     var database : Connection!
     
     
-     //-----------------------------------------
+    //-----------------------------------------
     //Создаем таблицу  words и колонки
     let wordsTable = Table("words")
     //Колонки для таблицы words
@@ -33,6 +33,7 @@ class StorageService {
     //Колонки для таблицы groups
     let groupId  = Expression<Int>("group_id")
     let groupValue = Expression<String>("group_value")
+    let groupCover = Expression<String>("group_cover")
     //-----------------------------------------
     
     
@@ -143,8 +144,8 @@ class StorageService {
     }
     
     //insert в таблицу groups -> наименование альбома на русском (альбом=группа)
-    func addValueToTableGroups(groupValue : String){
-        let insertGroupValue = self.groupsTable.insert(self.groupValue <- groupValue)
+    func addValueToTableGroups(groupValue : String, groupCover : String){
+        let insertGroupValue = self.groupsTable.insert(self.groupValue <- groupValue, self.groupCover <- groupCover)
         do{
             try self.database.run(insertGroupValue)
             print("inserted group value")
@@ -185,7 +186,7 @@ class StorageService {
         do{
             let groups = try self.database.prepare(self.groupsTable)
             for group in groups{
-                print("groupId: \(group[self.groupId]), group value: \(group[self.groupValue])")
+                print("groupId: \(group[self.groupId]), group value: \(group[self.groupValue]), group cover name: \(group[self.groupCover])")
             }
         }catch{
             print(error)

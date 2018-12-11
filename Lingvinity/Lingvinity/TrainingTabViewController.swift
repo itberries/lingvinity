@@ -19,6 +19,8 @@ class TrainingTabViewController: UIViewController {
     
     @IBOutlet weak var buttonNo: UIButton!
     
+    @IBOutlet weak var timerLabel: UILabel!
+    
     var score : Int = 0
     var index : Int = 0
     
