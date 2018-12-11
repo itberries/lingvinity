@@ -18,7 +18,7 @@ class AddWordTabViewController :
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var recognitionResult: UILabel!
     
-    var model: Inceptionv3!
+    var model: MobileNet!
     let imageStorage = ImageStorageService()
     
     override func viewDidLoad() {
@@ -27,7 +27,7 @@ class AddWordTabViewController :
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        model = Inceptionv3()
+        model = MobileNet()
     }
     
     @IBAction func openPhotoLibrary(_ sender: UIButton) {
@@ -83,8 +83,13 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
     
     func convertImageFormat(for image: UIImage) -> (newImage: UIImage, pixelBuffer: CVPixelBuffer)? {
         
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: 299, height: 299), true, 2.0)
-        image.draw(in: CGRect(x: 0, y: 0, width: 299, height: 299))
+        // TODO: fix image size on storybord to 224x224
+        
+        let widthToConvert = 224
+        let heightToConvert = 224
+        
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: widthToConvert, height: heightToConvert), true, 2.0)
+        image.draw(in: CGRect(x: 0, y: 0, width: widthToConvert, height: heightToConvert))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
