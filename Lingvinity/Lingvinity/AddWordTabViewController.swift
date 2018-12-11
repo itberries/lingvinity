@@ -20,6 +20,10 @@ class AddWordTabViewController :
     
     let imageStorage = ImageStorageService()
     let predictionService = PredictionService()
+    let dataBaseService = StorageService()
+    
+    typealias Word = (value: String, translatedValue: String, imageName: String, image: UIImage)
+    var selectedWord : Word?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +56,13 @@ class AddWordTabViewController :
         present(picker, animated: true, completion: nil)
     }
     
+    @IBAction func saveToDictionary(_ sender: Any) {
+        if (selectedWord != nil) {
+            dataBaseService.addValueToTableWords(wordValue: selectedWord!.value, wordDefinition: selectedWord!.translatedValue, image: selectedWord!.imageName)
+            imageStorage.save(image: selectedWord!.image, withName: selectedWord!.imageName)
+            print("Saved to dictionary")
+        }
+    }
 }
 
 extension AddWordTabViewController : UIImagePickerControllerDelegate {
@@ -73,7 +84,11 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
             photoImageView.image = convertedImage
             // TODO: добавить выбор одного слова для сохранения в словарь из топ 5
             recognitionResult.text = prediction.0
-            imageStorage.save(image: convertedImage, withName: "1")
+            
+            // MARK: recognitionResult.text здесь - это выбранное пользователем слово
+            if let wordValue = recognitionResult.text {
+                selectedWord = Word(value: wordValue, translatedValue: wordValue, imageName: "1", image: convertedImage)
+            }
         }
     }
     
