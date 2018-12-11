@@ -23,6 +23,7 @@
 		5D3BA23921A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D3BA23721A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib */; };
 		5D3BA23B21A586D9002A1ECE /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3BA23A21A586D9002A1ECE /* AlbumModel.swift */; };
 		5D47CC5B21ADCD0300D655BD /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5D47CC5A21ADCD0300D655BD /* Inceptionv3.mlmodel */; };
+		5D97E4BF21BF968A00C2F79B /* ImageStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D97E4BE21BF968A00C2F79B /* ImageStorageService.swift */; };
 		6C22187321A4A1010046F5F4 /* StorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C22187221A4A1010046F5F4 /* StorageModel.swift */; };
 		6C4897FC21BD71830083ECC1 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4897FB21BD71830083ECC1 /* StorageService.swift */; };
 		6CD2045421BEE20C00625171 /* words.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 6CD2045321BEE20C00625171 /* words.sqlite */; };
@@ -84,6 +85,7 @@
 		5D3BA23721A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DictionaryAlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		5D3BA23A21A586D9002A1ECE /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
 		5D47CC5A21ADCD0300D655BD /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
+		5D97E4BE21BF968A00C2F79B /* ImageStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageService.swift; sourceTree = "<group>"; };
 		6C22187221A4A1010046F5F4 /* StorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageModel.swift; sourceTree = "<group>"; };
 		6C4897FB21BD71830083ECC1 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		6CD2045321BEE20C00625171 /* words.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = words.sqlite; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				6C4897FB21BD71830083ECC1 /* StorageService.swift */,
+				5D97E4BE21BF968A00C2F79B /* ImageStorageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				5D3BA23B21A586D9002A1ECE /* AlbumModel.swift in Sources */,
 				6C22187321A4A1010046F5F4 /* StorageModel.swift in Sources */,
 				1B26BFB72180F49100DF5325 /* AddWordTabViewController.swift in Sources */,
+				5D97E4BF21BF968A00C2F79B /* ImageStorageService.swift in Sources */,
 				6C4897FC21BD71830083ECC1 /* StorageService.swift in Sources */,
 				1B26BFE721905FF800DF5325 /* SettingsTabViewController.swift in Sources */,
 			);
