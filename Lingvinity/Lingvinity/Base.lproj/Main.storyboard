@@ -121,7 +121,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dictionary" translatesAutoresizingMaskIntoConstraints="NO" id="57i-Yg-zOb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lingvinity" translatesAutoresizingMaskIntoConstraints="NO" id="57i-Yg-zOb">
                                 <rect key="frame" x="30" y="84" width="74" height="74"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="CLW-kZ-hsN"/>
@@ -485,6 +485,7 @@
     <resources>
         <image name="addWord" width="18.75" height="18.75"/>
         <image name="dictionary" width="18.75" height="18.75"/>
+        <image name="lingvinity" width="300" height="300"/>
         <image name="settings" width="18.75" height="18.75"/>
         <image name="trainning" width="18.75" height="18.75"/>
     </resources>

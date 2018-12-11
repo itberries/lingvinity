@@ -33,7 +33,7 @@ class StorageService {
     //Колонки для таблицы groups
     let groupId  = Expression<Int>("group_id")
     let groupValue = Expression<String>("group_value")
-    let groupCover = Expression<String>("group_cover")
+    let groupCover = Expression<String?>("group_cover")
     //-----------------------------------------
     
     
