@@ -14,6 +14,7 @@ class DictionaryTabViewController: UIViewController {
     let createNewAlbumCellIdentifier = "createNewAlbumCollectionViewCell"
     
     var albums = [AlbumModel]()
+    let imageStorage = ImageStorageService()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -41,7 +42,11 @@ class DictionaryTabViewController: UIViewController {
         let album = AlbumModel()
         album.name = name
         album.numberOfWords = words
-        album.cover = UIImage(named: "albumCover")
+        if let cover = imageStorage.getImage(withName: "1") {
+            album.cover = cover
+        } else {
+            album.cover = UIImage(named: "albumCover")
+        }
         return album
     }
     
