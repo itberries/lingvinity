@@ -168,17 +168,19 @@ class StorageService {
     }
     
     //Показ содержимого таблицы words
-    func listWords(){
+    func listWords() -> [(name: String, value: String)]  {
         print("LIST WORDS TAPPED")
-        
+        var gameWordBatch:[(name: String, value: String)] = []
         do{
             let words = try self.database.prepare(self.wordsTable)
             for word in words{
                 print("wordId: \(word[self.wordId]), word: \(word[self.wordValue]), definition: \(word[self.wordDefinition])")
+                 gameWordBatch += [(name: word[self.wordValue], value: word[self.wordDefinition])]
             }
         }catch{
             print(error)
         }
+        return gameWordBatch
     }
     
     //Показ содержимого таблицы groups
