@@ -12,7 +12,7 @@ import UIKit
 class AlbumDetailViewController: UIViewController {
     
     var album : AlbumModel?
-    var words = [AlbumModel]() // TODO: change to WordModel
+    var words = [WordModel]() // TODO: change to WordModel
     
     let databaseService = StorageService()
     
@@ -25,7 +25,7 @@ class AlbumDetailViewController: UIViewController {
         
         self.title = "\(album!.name ?? "")"
         
-        words = databaseService.getAlbums() // TODO: change to getWords
+        words = databaseService.findAllWordsByAlbumId(groupId: (self.album?.id)!) // TODO: change to getWords
         
         wordsTableView.dataSource = self
         wordsTableView.delegate = self

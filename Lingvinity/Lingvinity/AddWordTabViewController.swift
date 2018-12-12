@@ -22,15 +22,31 @@ class AddWordTabViewController :
     let predictionService = PredictionService()
     let dataBaseService = StorageService()
     
+    let switchHight = 600
+    var leftButton: UIButton!
+    var rightButton: UIButton!
+    
     typealias Word = (value: String, translatedValue: String, imageName: String, image: UIImage)
     
     var selectedWord : Word?
     var valyeAndTranslation: [(word: String, translation: String)] = []
-    var selectedWordIndex : Int = 0
+    var selectedWordIndex : Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        leftButton = addSwitchButton(xPos: 50, yPos: switchHight, text: "Left", buttonFunc: #selector(self.leftButtonAction))
+        rightButton = addSwitchButton(xPos: Int(UIScreen.main.bounds.width - 150)  , yPos: switchHight, text: "Right", buttonFunc: #selector(self.rightButtonAction))
+    }
+    
+    func addSwitchButton(xPos: Int, yPos: Int, text: String, buttonFunc: Selector) -> UIButton {
+        let button = UIButton(frame: CGRect(x: xPos, y: yPos, width: 100, height: 50))
+        button.backgroundColor = .purple
+        button.setTitle(text, for: .normal)
+        button.addTarget(self, action: buttonFunc, for: .touchUpInside)
+        button.isHidden = true
+        self.view.addSubview(button)
+        return button
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,24 +54,21 @@ class AddWordTabViewController :
     }
     
     @IBAction func openPhotoLibrary(_ sender: UIButton) {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = .photoLibrary
-        picker.allowsEditing = false
-        
-        present(picker, animated: true, completion: nil)
+        baseOpenFunction(target: .photoLibrary)
     }
     
     @IBAction func openCamera(_ sender: UIButton) {
         if !UIImagePickerController.isSourceTypeAvailable(.camera) {
             return
         }
-        
+        baseOpenFunction(target: .camera)
+    }
+    
+    func baseOpenFunction(target: UIImagePickerController.SourceType) {
         let picker = UIImagePickerController()
         picker.delegate = self
-        picker.sourceType = .camera
+        picker.sourceType = target
         picker.allowsEditing = false
-        
         present(picker, animated: true, completion: nil)
     }
     
@@ -80,13 +93,20 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         picker.dismiss(animated: true)
-        recognitionResult.text = "Analyzing Image..."
+        DispatchQueue.main.async {
+            self.recognitionResult.text = "Analyzing Image..."
+        }
+        rightButton.isHidden = true
+        leftButton.isHidden = true
+        
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             return
         }
         
         let predictionResult = predictionService.getTopPredictionResults(for: image)
+        
         if let convertedImage = predictionResult?.convertedImage, let predictions = predictionResult?.predictions {
             
             var wordsValues = [String]()
@@ -95,58 +115,46 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
                 wordsValues += prediction.0.components(separatedBy: ", ")
             }
             translateWords(wordsArray: wordsValues, finished:  { translatedValues in
+                self.valyeAndTranslation.removeAll()
                 for (word, translation) in zip(wordsValues, translatedValues) {
                     self.valyeAndTranslation.append((word, translation))
                 }
                 DispatchQueue.main.async {
-                    self.recognitionResult.lineBreakMode = .byWordWrapping
-                    self.recognitionResult.numberOfLines = 0
                     self.recognitionResult.text = self.valyeAndTranslation.first!.translation + " (" + self.valyeAndTranslation.first!.word + ")"
-                    self.recognitionResult.sizeToFit()
-                    
-                    let switchHight = 600
-                    
-                    self.addSwitchButton(xPos: 50, yPos: switchHight, text: "Left", buttonFunc: #selector(self.leftButtonAction))
-                    self.addSwitchButton(xPos: Int(UIScreen.main.bounds.width - 150)  , yPos: switchHight, text: "Right", buttonFunc: #selector(self.rightButtonAction))
+                    self.leftButton.isHidden = false
+                    self.rightButton.isHidden = false
                 }
-                // TODO: добавить выбор одного слова для сохранения в словарь из топ 5
-                // MARK: recognitionResult.text здесь - это выбранное пользователем слово
                 if let word = self.valyeAndTranslation.first {
                     self.selectedWord = Word(value: word.word, translatedValue: word.translation, imageName: "1", image: convertedImage)
+                    self.selectedWordIndex = 1
                 }
             })
         }
-
-    }
-    
-    func addSwitchButton(xPos: Int, yPos: Int, text: String, buttonFunc: Selector) {
-        
-        let button = UIButton(frame: CGRect(x: xPos, y: yPos, width: 100, height: 50))
-        button.backgroundColor = .purple
-        button.setTitle(text, for: .normal)
-        button.addTarget(self, action: buttonFunc, for: .touchUpInside)
-        
-        self.view.addSubview(button)
     }
     
     func setResultWord(index: Int) {
         let currentWord = valyeAndTranslation[index]
         selectedWord?.value = currentWord.word
         selectedWord?.translatedValue = currentWord.translation
-        self.recognitionResult.text = currentWord.translation + " (" + currentWord.word + ")"
+        DispatchQueue.main.async {
+            self.recognitionResult.text = currentWord.translation + " (" + currentWord.word + ")"
+        }
     }
         
     @objc func rightButtonAction(sender: UIButton!) {
-        selectedWordIndex = (selectedWordIndex + 1) % (valyeAndTranslation.count - 1)
-        setResultWord(index: selectedWordIndex)
+        selectedWordIndex = (selectedWordIndex + 1) % (valyeAndTranslation.count)
+        if selectedWordIndex == 0 {
+            selectedWordIndex = 1
+        }
+        setResultWord(index: selectedWordIndex - 1)
     }
     
     @objc func leftButtonAction(sender: UIButton!) {
-        selectedWordIndex = (selectedWordIndex + 1) % (valyeAndTranslation.count - 1)
-        if selectedWordIndex < 0 {
+        selectedWordIndex = selectedWordIndex - 1
+        if selectedWordIndex <= 0 {
             selectedWordIndex = valyeAndTranslation.count
         }
-        setResultWord(index: selectedWordIndex)
+        setResultWord(index: selectedWordIndex - 1)
     }
     
     func convertImageFormat(for image: UIImage) -> (newImage: UIImage, pixelBuffer: CVPixelBuffer)? {
