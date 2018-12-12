@@ -26,33 +26,24 @@ class StorageModel{
         }
         
         tempArray.shuffle()
-        var i = 0;
-        for batch in gameWordBatch1 {
-            gameWordBatch += [(name: batch.name, value: tempArray[i])]
-            i = i + 1
-        }
         
-        
-        
-//        //необходимо заполнить массив из базы данных словами
-//        gameWordBatch += [(name: "dog", value: "собака")]
-//        gameWordBatch += [(name: "sky", value: "небо")]
-//        gameWordBatch += [(name: "key", value: "собака")]
-//        gameWordBatch += [(name: "mother", value: "мама")]
-//        gameWordBatch += [(name: "wednesday", value: "среда")]
-        
-        //необходимо сформировать массив с корректными ответами
-        
-        
-        //перемешать в словаре значения и перевод
-        
+        createArrayWithWords(tempArray: tempArray)
     }
     
+    func createArrayWithWords(tempArray : [String]  ) {
+        var i = 0;
+        for batch in gameWordBatch1 {
+            if(isPrime(i) == true){
+                gameWordBatch += [(name: batch.name, value: tempArray[i])]
+            }else{
+                gameWordBatch += [(name: batch.name, value: batch.value)]
+            }
+            i = i + 1
+        }
+    }
+    
+    func isPrime(_ number: Int) -> Bool {
+        return number > 1 && !(2..<number).contains { number % $0 == 0 }
+    }
     
 }
-
-//var correctWordBatch = ["dog": "собака",
-//                        "sky": "небо",
-//                        "key": "ключ",
-//                        "mother": "мама",
-//                        "wednesday": "среда"]
