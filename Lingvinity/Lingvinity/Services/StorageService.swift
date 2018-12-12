@@ -146,7 +146,7 @@ class StorageService {
     }
     
     //insert в таблицу groups -> наименование альбома на русском (альбом=группа)
-    func addValueToTableGroups(groupValue : String, groupCover : String){
+    func addValueToTableGroups(groupValue : String, groupCover : String?){
         let insertGroupValue = self.groupsTable.insert(self.groupValue <- groupValue, self.groupCover <- groupCover)
         do{
             try self.database.run(insertGroupValue)
@@ -184,17 +184,33 @@ class StorageService {
     }
     
     //Показ содержимого таблицы groups
-    func listGroups(){
+    func listGroups() {
         print("LIST GROUPS TAPPED")
         
-        do{
+        do {
             let groups = try self.database.prepare(self.groupsTable)
             for group in groups{
                 print("groupId: \(group[self.groupId]), group value: \(group[self.groupValue]), group cover name: \(group[self.groupCover])")
             }
-        }catch{
+        } catch {
             print(error)
         }
+    }
+    
+    //Получение содержимого таблицы groups
+    func getAlbums() -> [AlbumModel] {
+        print("GET ALBUMS")
+        var albums = [AlbumModel]()
+        do {
+            let groups = try self.database.prepare(self.groupsTable)
+            for group in groups{
+                let album = AlbumModel(name: group[self.groupValue], coverName: group[self.groupCover])
+                albums.append(album)
+            }
+        } catch {
+            print(error)
+        }
+        return albums
     }
     
     

@@ -13,4 +13,23 @@ class AlbumModel {
     var name : String?
     var numberOfWords : Int?
     var cover: UIImage?
+    var coverName: String?
+    
+    init(name: String?, coverName: String? ) {
+        self.name = name
+        self.coverName = coverName
+        self.numberOfWords = 0
+        
+        let imageStorage = ImageStorageService()
+        if coverName != nil {
+            if let cover = imageStorage.getImage(withName: coverName!) {
+                self.cover = cover
+            } else {
+                print("Can't find album image cover with coverName \(coverName!)")
+                self.cover = UIImage(named: "albumCover")
+            }
+        } else {
+            self.cover = UIImage(named: "albumCover")
+        }
+    }
 }
