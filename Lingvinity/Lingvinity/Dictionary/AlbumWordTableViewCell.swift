@@ -21,8 +21,13 @@ class AlbumWordTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
+    }
+    
+    func fillCell(with model: AlbumModel) { // TODO: change to WordModel
+        wordImageView.image = model.cover
+        valueLabel.text = model.name
+        translationLabel.text = model.name
     }
     
 }

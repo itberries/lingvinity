@@ -205,7 +205,6 @@
 				5D3BA23321A56928002A1ECE /* CreateNewAlbumCollectionViewCell.xib */,
 				5D3BA23621A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift */,
 				5D3BA23721A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib */,
-				5D3BA23A21A586D9002A1ECE /* AlbumModel.swift */,
 			);
 			path = Dictionary;
 			sourceTree = "<group>";
@@ -232,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				6C22187221A4A1010046F5F4 /* StorageModel.swift */,
+				5D3BA23A21A586D9002A1ECE /* AlbumModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

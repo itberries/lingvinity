@@ -17,6 +17,7 @@ class DictionaryTabViewController: UIViewController {
     let imageStorage = ImageStorageService()
     
     var albums = [AlbumModel]()
+    var selectedAlbum : AlbumModel?
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -37,6 +38,11 @@ class DictionaryTabViewController: UIViewController {
         self.albums.append(album)
         databaseService.addValueToTableGroups(groupValue: album.name!, groupCover: album.coverName)
         self.collectionView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let albumDetailController = segue.destination as? AlbumDetailViewController else { return }
+        albumDetailController.album = selectedAlbum
     }
     
 }
@@ -79,7 +85,8 @@ extension DictionaryTabViewController : UICollectionViewDelegate {
             showCreateNewAlbumPopUp();
         }
         else {
-             performSegue(withIdentifier: "albumDetailSegue", sender: self)
+            selectedAlbum = self.albums[indexPath.item]
+            performSegue(withIdentifier: "albumDetailSegue", sender: self)
         }
     }
     

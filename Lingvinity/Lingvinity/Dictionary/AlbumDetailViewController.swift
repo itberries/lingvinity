@@ -9,25 +9,45 @@
 import Foundation
 import UIKit
 
-class AlbumDetailViewController: UIViewController{
+class AlbumDetailViewController: UIViewController {
     
-    var selectedAlbum : AlbumModel?
+    var album : AlbumModel?
+    var words = [AlbumModel]() // TODO: change to WordModel
+    
+    let databaseService = StorageService()
+    
+    let wordCellIdentifier = "AlbumWordTableViewCell"
+    
+    @IBOutlet weak var wordsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // TODO: заполнение массива слов словами из базы данных
+        self.title = "\(album!.name ?? "")"
+        
+        words = databaseService.getAlbums() // TODO: change to getWords
+        
+        wordsTableView.dataSource = self
+        wordsTableView.delegate = self
+        
+        wordsTableView.register(UINib.init(nibName: "AlbumWordTableViewCell", bundle: nil), forCellReuseIdentifier: wordCellIdentifier)
+        
     }
     
 }
 
 extension AlbumDetailViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return words.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let word = self.words[indexPath.row]
+        let cell = wordsTableView.dequeueReusableCell(withIdentifier: self.wordCellIdentifier, for: indexPath)
+        if let castedCell = cell as? AlbumWordTableViewCell {
+            castedCell.fillCell(with: word)
+        }
+        return cell
     }
     
     
