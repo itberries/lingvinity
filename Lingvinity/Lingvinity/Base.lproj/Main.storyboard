@@ -56,7 +56,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RxU-2c-JC8">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RxU-2c-JC8">
                                 <rect key="frame" x="97" y="743" width="220" height="50"/>
                                 <color key="backgroundColor" red="0.65303128957748413" green="0.40425914525985718" blue="0.54760962724685669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -76,6 +76,12 @@
                                     <action selector="saveToDictionary:" destination="9pv-A4-QxB" eventType="touchUpInside" id="4bN-J1-Txy"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a photo..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIk-JQ-VJL">
+                                <rect key="frame" x="93.666666666666686" y="430" width="227" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.95602244138717651" green="0.93098622560501099" blue="0.97600668668746948" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -88,6 +94,8 @@
                             <constraint firstItem="TjM-jY-mrJ" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="ImY-JF-scB"/>
                             <constraint firstItem="wBm-JF-0xZ" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="10" id="KS6-PB-2Xc"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="KQZ-1w-vlD" secondAttribute="trailing" constant="10" id="M3i-VL-gel"/>
+                            <constraint firstItem="TIk-JQ-VJL" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="U3U-5C-VIf"/>
+                            <constraint firstItem="TIk-JQ-VJL" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Yus-XX-kXd"/>
                             <constraint firstItem="hCb-fb-5E9" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="ZWh-Yw-aZf"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="RxU-2c-JC8" secondAttribute="bottom" constant="20" id="d2h-HN-m02"/>
                             <constraint firstItem="m8K-0t-8dd" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="30" id="d5G-Ah-GoU"/>
@@ -99,9 +107,11 @@
                     <tabBarItem key="tabBarItem" title="Add word" image="addWord" selectedImage="addWord" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="camera" destination="TjM-jY-mrJ" id="V2E-Dg-A59"/>
+                        <outlet property="choosePhotoLabel" destination="TIk-JQ-VJL" id="c0I-oK-vDy"/>
                         <outlet property="photoImageView" destination="m8K-0t-8dd" id="cjO-rf-R4B"/>
                         <outlet property="photoLibrary" destination="hCb-fb-5E9" id="Ekz-WJ-aHp"/>
                         <outlet property="recognitionResult" destination="wBm-JF-0xZ" id="Atz-yV-CHu"/>
+                        <outlet property="saveButton" destination="RxU-2c-JC8" id="YXR-Aa-6Lo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>

@@ -17,6 +17,8 @@ class AddWordTabViewController :
     @IBOutlet weak var photoLibrary: UIButton!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var recognitionResult: UILabel!
+    @IBOutlet weak var choosePhotoLabel: UILabel!
+    @IBOutlet weak var saveButton: UIButton!
     
     let imageStorage = ImageStorageService()
     let predictionService = PredictionService()
@@ -111,6 +113,9 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
             
             var wordsValues = [String]()
             photoImageView.image = convertedImage
+            choosePhotoLabel.isHidden = true
+            saveButton.isHidden = false
+            
             for (prediction, _) in zip(predictions, 1...5) {
                 wordsValues += prediction.0.components(separatedBy: ", ")
             }
