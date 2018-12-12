@@ -26,6 +26,7 @@ class AddWordTabViewController :
     
     var selectedWord : Word?
     var valyeAndTranslation: [(word: String, translation: String)] = []
+    var selectedWordIndex : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,7 +104,7 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
                     self.recognitionResult.text = self.valyeAndTranslation.first!.translation + " (" + self.valyeAndTranslation.first!.word + ")"
                     self.recognitionResult.sizeToFit()
                     
-                    let switchHight = 675
+                    let switchHight = 600
                     
                     self.addSwitchButton(xPos: 50, yPos: switchHight, text: "Left", buttonFunc: #selector(self.leftButtonAction))
                     self.addSwitchButton(xPos: Int(UIScreen.main.bounds.width - 150)  , yPos: switchHight, text: "Right", buttonFunc: #selector(self.rightButtonAction))
@@ -128,12 +129,24 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
         self.view.addSubview(button)
     }
     
+    func setResultWord(index: Int) {
+        let currentWord = valyeAndTranslation[index]
+        selectedWord?.value = currentWord.word
+        selectedWord?.translatedValue = currentWord.translation
+        self.recognitionResult.text = currentWord.translation + " (" + currentWord.word + ")"
+    }
+        
     @objc func rightButtonAction(sender: UIButton!) {
-        print("Button tapped")
+        selectedWordIndex = (selectedWordIndex + 1) % (valyeAndTranslation.count - 1)
+        setResultWord(index: selectedWordIndex)
     }
     
     @objc func leftButtonAction(sender: UIButton!) {
-        print("Button tapped")
+        selectedWordIndex = (selectedWordIndex + 1) % (valyeAndTranslation.count - 1)
+        if selectedWordIndex < 0 {
+            selectedWordIndex = valyeAndTranslation.count
+        }
+        setResultWord(index: selectedWordIndex)
     }
     
     func convertImageFormat(for image: UIImage) -> (newImage: UIImage, pixelBuffer: CVPixelBuffer)? {
