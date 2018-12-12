@@ -19,14 +19,12 @@ class AddWordTabViewController :
     @IBOutlet weak var recognitionResult: UILabel!
     @IBOutlet weak var choosePhotoLabel: UILabel!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var rightButton: UIButton!
     
     let imageStorage = ImageStorageService()
     let predictionService = PredictionService()
     let dataBaseService = StorageService()
-    
-    let switchHight = 600
-    var leftButton: UIButton!
-    var rightButton: UIButton!
     
     typealias Word = (value: String, translatedValue: String, imageName: String, image: UIImage)
     
@@ -37,18 +35,6 @@ class AddWordTabViewController :
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        leftButton = addSwitchButton(xPos: 50, yPos: switchHight, text: " < ", buttonFunc: #selector(self.leftButtonAction))
-        rightButton = addSwitchButton(xPos: Int(UIScreen.main.bounds.width - 150)  , yPos: switchHight, text: " > ", buttonFunc: #selector(self.rightButtonAction))
-    }
-    
-    func addSwitchButton(xPos: Int, yPos: Int, text: String, buttonFunc: Selector) -> UIButton {
-        let button = UIButton(frame: CGRect(x: xPos, y: yPos, width: 100, height: 50))
-        button.backgroundColor = .purple
-        button.setTitle(text, for: .normal)
-        button.addTarget(self, action: buttonFunc, for: .touchUpInside)
-        button.isHidden = true
-        self.view.addSubview(button)
-        return button
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,6 +72,23 @@ class AddWordTabViewController :
             }
         }
     }
+    
+    @IBAction func leftButtonAction(_ sender: Any) {
+        selectedWordIndex = selectedWordIndex - 1
+        if selectedWordIndex <= 0 {
+            selectedWordIndex = valyeAndTranslation.count
+        }
+        setResultWord(index: selectedWordIndex - 1)
+    }
+    
+    @IBAction func rightButtonAction(_ sender: Any) {
+        selectedWordIndex = (selectedWordIndex + 1) % (valyeAndTranslation.count)
+        if selectedWordIndex == 0 {
+            selectedWordIndex = 1
+        }
+        setResultWord(index: selectedWordIndex - 1)
+    }
+    
 }
 
 extension AddWordTabViewController : UIImagePickerControllerDelegate {
@@ -100,8 +103,6 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
         DispatchQueue.main.async {
             self.recognitionResult.text = "Analyzing Image..."
         }
-        rightButton.isHidden = true
-        leftButton.isHidden = true
         
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             return
@@ -113,6 +114,7 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
             
             var wordsValues = [String]()
             photoImageView.image = convertedImage
+            
             choosePhotoLabel.isHidden = true
             saveButton.isHidden = false
             
@@ -126,8 +128,6 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
                 }
                 DispatchQueue.main.async {
                     self.recognitionResult.text = self.valyeAndTranslation.first!.translation + " (" + self.valyeAndTranslation.first!.word + ")"
-                    self.leftButton.layer.cornerRadius = 25
-                    self.rightButton.layer.cornerRadius = 25
                     self.leftButton.isHidden = false
                     self.rightButton.isHidden = false
                 }
@@ -146,22 +146,6 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
         DispatchQueue.main.async {
             self.recognitionResult.text = currentWord.translation + " (" + currentWord.word + ")"
         }
-    }
-        
-    @objc func rightButtonAction(sender: UIButton!) {
-        selectedWordIndex = (selectedWordIndex + 1) % (valyeAndTranslation.count)
-        if selectedWordIndex == 0 {
-            selectedWordIndex = 1
-        }
-        setResultWord(index: selectedWordIndex - 1)
-    }
-    
-    @objc func leftButtonAction(sender: UIButton!) {
-        selectedWordIndex = selectedWordIndex - 1
-        if selectedWordIndex <= 0 {
-            selectedWordIndex = valyeAndTranslation.count
-        }
-        setResultWord(index: selectedWordIndex - 1)
     }
     
     func translateWords(wordsArray: [String], finished: @escaping (([String]) -> Void)) {
