@@ -108,19 +108,26 @@ class TrainingTabViewController: UIViewController {
     
     
     @IBAction func buttonYesClick(_ sender: UIButton) {
-        if(value.text == storage.correctWordBatch[word.text!]!){
-           setFunnySmile()
-        }else{
-            setSadSmile()
-        }
-        nextStep()
+        checkAnswer(answer: value.text!, correctAnswer: storage.correctWordBatch[word.text!]!, button: true);
     }
     
     @IBAction func buttonNoClick(_ sender: UIButton) {
-        if(value.text != storage.correctWordBatch[word.text!]!){
-             setFunnySmile()
+        checkAnswer(answer: value.text!, correctAnswer: storage.correctWordBatch[word.text!]!, button: false);
+    }
+    
+    func checkAnswer(answer: String, correctAnswer : String , button: Bool) {
+        if(answer == correctAnswer){
+            if(button == true){
+                setFunnySmile()
+            }else{
+                setSadSmile()
+            }
         }else{
-            setSadSmile()
+            if(button == true){
+                setSadSmile()
+            }else{
+                setFunnySmile()
+            }
         }
         nextStep()
     }
