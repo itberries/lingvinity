@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 
 class AlbumModel {
-    var name : String?
-    var numberOfWords : Int?
+    var id: Int?
+    var name: String?
+    var numberOfWords: Int?
     var cover: UIImage?
     var coverName: String?
     
@@ -31,5 +32,10 @@ class AlbumModel {
         } else {
             self.cover = UIImage(named: "albumCover")
         }
+    }
+    
+    convenience init(id: Int?, name: String?, coverName: String? ) {
+        self.init(name: name, coverName: coverName)
+        self.id = id
     }
 }
