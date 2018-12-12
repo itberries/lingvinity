@@ -212,7 +212,7 @@ class StorageService {
         do {
             let groups = try self.database.prepare(self.groupsTable)
             for group in groups{
-                print("groupId: \(group[self.groupId]), group value: \(group[self.groupValue]), group cover name: \(group[self.groupCover])")
+                print("groupId: \(group[self.groupId]), group value: \(group[self.groupValue]), group cover name: \(String(describing: group[self.groupCover]))")
             }
         } catch {
             print(error)

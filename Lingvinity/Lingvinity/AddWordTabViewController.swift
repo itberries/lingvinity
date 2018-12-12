@@ -37,8 +37,8 @@ class AddWordTabViewController :
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        leftButton = addSwitchButton(xPos: 50, yPos: switchHight, text: "Left", buttonFunc: #selector(self.leftButtonAction))
-        rightButton = addSwitchButton(xPos: Int(UIScreen.main.bounds.width - 150)  , yPos: switchHight, text: "Right", buttonFunc: #selector(self.rightButtonAction))
+        leftButton = addSwitchButton(xPos: 50, yPos: switchHight, text: " < ", buttonFunc: #selector(self.leftButtonAction))
+        rightButton = addSwitchButton(xPos: Int(UIScreen.main.bounds.width - 150)  , yPos: switchHight, text: " > ", buttonFunc: #selector(self.rightButtonAction))
     }
     
     func addSwitchButton(xPos: Int, yPos: Int, text: String, buttonFunc: Selector) -> UIButton {
@@ -126,6 +126,8 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
                 }
                 DispatchQueue.main.async {
                     self.recognitionResult.text = self.valyeAndTranslation.first!.translation + " (" + self.valyeAndTranslation.first!.word + ")"
+                    self.leftButton.layer.cornerRadius = 25
+                    self.rightButton.layer.cornerRadius = 25
                     self.leftButton.isHidden = false
                     self.rightButton.isHidden = false
                 }
@@ -174,13 +176,13 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
         request.httpBody = postString.data(using: .utf8)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
-                print("error=\(error)")
+                print("error=\(String(describing: error))")
                 return
             }
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(response)")
+                print("response = \(String(describing: response))")
             }
             
             do {
