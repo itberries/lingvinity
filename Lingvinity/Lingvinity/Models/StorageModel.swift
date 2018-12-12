@@ -13,14 +13,27 @@ class StorageModel{
     
     let dataBaseService = StorageService()//сервис для работы с базой данных
     
-    var gameWordBatch:[(name: String, value: String)] = []
+    var gameWordBatch1:[(name: String, value: String)] = []
+    var gameWordBatch:[(name: String, value: String)] = [] //с перемешенными словами
     var correctWordBatch = [String : String]()
     
     init()  {
-        gameWordBatch = dataBaseService.listWords()
-        for batch in gameWordBatch {
+        gameWordBatch1 = dataBaseService.listWords()
+        var  tempArray = [String] ()
+        for batch in gameWordBatch1 {
             correctWordBatch[batch.name] = batch.value
+            tempArray.append(batch.value)
         }
+        
+        tempArray.shuffle()
+        var i = 0;
+        for batch in gameWordBatch1 {
+            gameWordBatch += [(name: batch.name, value: tempArray[i])]
+            i = i + 1
+        }
+        
+        
+        
 //        //необходимо заполнить массив из базы данных словами
 //        gameWordBatch += [(name: "dog", value: "собака")]
 //        gameWordBatch += [(name: "sky", value: "небо")]
@@ -34,6 +47,7 @@ class StorageModel{
         //перемешать в словаре значения и перевод
         
     }
+    
     
 }
 
