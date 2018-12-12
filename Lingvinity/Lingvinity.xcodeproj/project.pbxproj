@@ -147,13 +147,13 @@
 		1B26BFB32180F49100DF5325 /* Lingvinity */ = {
 			isa = PBXGroup;
 			children = (
+				6C89F4E121C056D6008FCBDD /* Models */,
 				6C4897FA21BD711C0083ECC1 /* Services */,
 				1B26BFBA2180F49100DF5325 /* Main.storyboard */,
 				1B26BFB42180F49100DF5325 /* AppDelegate.swift */,
 				1B26BFB62180F49100DF5325 /* AddWordTabViewController.swift */,
 				1B26BFE621905FF800DF5325 /* SettingsTabViewController.swift */,
 				1B26BFE421905F4600DF5325 /* TrainingTabViewController.swift */,
-				6C22187221A4A1010046F5F4 /* StorageModel.swift */,
 				5DC21EC0219C65230087ABFA /* Dictionary */,
 				1B26BFBD2180F49200DF5325 /* Assets.xcassets */,
 				1B26BFBF2180F49200DF5325 /* LaunchScreen.storyboard */,
@@ -209,6 +209,14 @@
 				08F825ED2A9199215F7EC731 /* Pods_Lingvinity.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C89F4E121C056D6008FCBDD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6C22187221A4A1010046F5F4 /* StorageModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		863CDAC1930C014A05C47461 /* Pods */ = {

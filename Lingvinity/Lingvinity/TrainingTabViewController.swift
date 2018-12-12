@@ -20,7 +20,12 @@ class TrainingTabViewController: UIViewController {
     @IBOutlet weak var buttonNo: UIButton!
     
     @IBOutlet weak var timerLabel: UILabel!
-    
+
+    //-----------------------
+    var gameTimer = Timer()
+    var seconds = 10;
+    var isTimerRuninh = false;
+    //------------------------
     var score : Int = 0
     var index : Int = 0
     
@@ -29,27 +34,84 @@ class TrainingTabViewController: UIViewController {
     
     let dataBaseService = StorageService()//сервис для работы с базой данных
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    func runTimer() {
+        seconds = 10
+        score = 0;
+        timerLabel.text = "\(seconds)"
+        scoreGame.text = String(score)
+        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(TrainingTabViewController.updateTimer)), userInfo: nil, repeats: true)
+    }
+    
+
+    
+    func stopTimer() {
+        gameTimer.invalidate()
+        print("stop timer!")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        print("tab training is disapearing")
+        stopTimer()
+        super.viewDidDisappear(animated)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("tab training is appearing")
         word.text = storage.gameWordBatch[index].name
         value.text = storage.gameWordBatch[index].value
         result.text = "...."
+        runTimer()
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
+//        word.text = storage.gameWordBatch[index].name
+//        value.text = storage.gameWordBatch[index].value
+//        result.text = "...."
+ 
         //dataBaseService.addValueToTableWords(wordValue: "cat", wordDefinition: "кошка", image : "image.png")
         
         //Список всех записей из БД с названиями групп/названий альбомов
         dataBaseService.listGroups()
         
         //Список всех записей из БД с имеющимся словарем
-        dataBaseService.listWords()
+        //dataBaseService.listWords()
+        
+        //запуск таймера
+      //  runTimer()
     }
   
+    @objc func updateTimer() {
+        if seconds < 1 {
+            gameTimer.invalidate()
+            //Send alert to indicate "time's up!"
+            showAlert()
+            //начинать игру заново?
+        } else {
+            seconds -= 1   //This will decrement(count down)the seconds.
+            timerLabel.text = "\(seconds)"
+        }
+    }
     
+    func showAlert() {
+        let alert = UIAlertController(title: "Поздравляем!", message: "Ваш результат: \(score) ", preferredStyle: .alert)
+        
+        //alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
+        //alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            print("Yay! You clicked OK!")
+            self.runTimer()
+        }))
+        self.present(alert, animated: true)
+    }
     
     @IBAction func buttonYesClick(_ sender: UIButton) {
         print(word.text!)
-        print(correctWordBatch[word.text!]!)
-        if(value.text == correctWordBatch[word.text!]!){
+        print(storage.correctWordBatch[word.text!]!)
+        if(value.text == storage.correctWordBatch[word.text!]!){
             score = score + 1
             result.text = "٩(｡•́‿•̀｡)۶"
         }else{
@@ -63,7 +125,7 @@ class TrainingTabViewController: UIViewController {
     }
     
     @IBAction func buttonNoClick(_ sender: UIButton) {
-        if(value.text != correctWordBatch[word.text!]!){
+        if(value.text != storage.correctWordBatch[word.text!]!){
             score = score + 1
             result.text = "٩(｡•́‿•̀｡)۶"
         }else{
