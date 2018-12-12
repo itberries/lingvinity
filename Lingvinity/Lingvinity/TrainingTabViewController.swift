@@ -66,41 +66,22 @@ class TrainingTabViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-//        word.text = storage.gameWordBatch[index].name
-//        value.text = storage.gameWordBatch[index].value
-//        result.text = "...."
- 
-        //dataBaseService.addValueToTableWords(wordValue: "cat", wordDefinition: "кошка", image : "image.png")
-        
         //Список всех записей из БД с названиями групп/названий альбомов
         dataBaseService.listGroups()
-        
-        //Список всех записей из БД с имеющимся словарем
-        //dataBaseService.listWords()
-        
-        //запуск таймера
-      //  runTimer()
     }
   
     @objc func updateTimer() {
         if seconds < 1 {
             gameTimer.invalidate()
-            //Send alert to indicate "time's up!"
             showAlert()
-            //начинать игру заново?
         } else {
-            seconds -= 1   //This will decrement(count down)the seconds.
+            seconds -= 1
             timerLabel.text = "\(seconds)"
         }
     }
     
     func showAlert() {
         let alert = UIAlertController(title: "Поздравляем!", message: "Ваш результат: \(score) ", preferredStyle: .alert)
-        
-        //alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
-        //alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             print("Yay! You clicked OK!")
             self.runTimer()
@@ -108,34 +89,47 @@ class TrainingTabViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    @IBAction func buttonYesClick(_ sender: UIButton) {
-        print(word.text!)
-        print(storage.correctWordBatch[word.text!]!)
-        if(value.text == storage.correctWordBatch[word.text!]!){
-            score = score + 1
-            result.text = "٩(｡•́‿•̀｡)۶"
-        }else{
-            score = score - 1
-            result.text = "(︶︹︺)"
-        }
+    func setFunnySmile() {
+        score = score + 1
+        result.text = "٩(｡•́‿•̀｡)۶"
+    }
+    
+    func setSadSmile() {
+        score = score - 1
+        result.text = "(︶︹︺)"
+    }
+    
+    func nextStep() {
         scoreGame.text = String(score)
         index = (index + 1) % storage.gameWordBatch.count
         word.text = storage.gameWordBatch[index].name
         value.text = storage.gameWordBatch[index].value
     }
     
+    
+    @IBAction func buttonYesClick(_ sender: UIButton) {
+        checkAnswer(answer: value.text!, correctAnswer: storage.correctWordBatch[word.text!]!, button: true);
+    }
+    
     @IBAction func buttonNoClick(_ sender: UIButton) {
-        if(value.text != storage.correctWordBatch[word.text!]!){
-            score = score + 1
-            result.text = "٩(｡•́‿•̀｡)۶"
+        checkAnswer(answer: value.text!, correctAnswer: storage.correctWordBatch[word.text!]!, button: false);
+    }
+    
+    func checkAnswer(answer: String, correctAnswer : String , button: Bool) {
+        if(answer == correctAnswer){
+            if(button == true){
+                setFunnySmile()
+            }else{
+                setSadSmile()
+            }
         }else{
-            score = score - 1
-            result.text = "(︶︹︺)"
+            if(button == true){
+                setSadSmile()
+            }else{
+                setFunnySmile()
+            }
         }
-        scoreGame.text! = String(score)
-        index = (index + 1) % storage.gameWordBatch.count
-        word.text = storage.gameWordBatch[index].name
-        value.text = storage.gameWordBatch[index].value
+        nextStep()
     }
     
 }
