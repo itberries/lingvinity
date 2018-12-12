@@ -60,7 +60,6 @@ class StorageService {
             let database = try Connection(fileUrl ?? "words.sqlite")
             //print(fileUrl ?? "words.sqlite")
             self.database = database
-            
         } catch  {
             print(error)
         }
@@ -165,6 +164,27 @@ class StorageService {
         }catch{
             print(error)
         }
+    }
+    
+    //Получить все альбомы по id альбома
+    func findAllWordsByAlbumId(groupId : Int ) -> [Int] {
+       var wordsIdArray = [Int]()
+       let query =  wordsTable
+        .join(wordsToGroups, on: wordsTable[self.wordId] == wordsToGroups[self.wordId])
+        .filter(wordsToGroups[self.groupId] ==  groupId)
+        
+       do{
+            let result = try self.database.prepare(query)
+            print("search all words by album id \(groupId)")
+            for row in result {
+                print("word id = \(row[wordsTable[self.wordId]])")
+                //добавляем id слова в результирующий массив
+                wordsIdArray.append(row[wordsTable[self.wordId]])
+            }
+        }catch{
+            print(error)
+        }
+        return wordsIdArray
     }
     
     //Показ содержимого таблицы words
