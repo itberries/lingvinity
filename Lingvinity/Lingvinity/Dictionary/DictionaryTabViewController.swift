@@ -78,6 +78,9 @@ extension DictionaryTabViewController : UICollectionViewDelegate {
         if (indexPath.row == albums.count) {
             showCreateNewAlbumPopUp();
         }
+        else {
+             performSegue(withIdentifier: "albumDetailSegue", sender: self)
+        }
     }
     
     func showCreateNewAlbumPopUp() {

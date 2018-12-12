@@ -25,6 +25,9 @@
 		5D97E4BF21BF968A00C2F79B /* ImageStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D97E4BE21BF968A00C2F79B /* ImageStorageService.swift */; };
 		5D97E4C121BFA7C300C2F79B /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5D97E4C021BFA7C300C2F79B /* MobileNet.mlmodel */; };
 		5D97E4C321BFD57800C2F79B /* PredictionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D97E4C221BFD57800C2F79B /* PredictionService.swift */; };
+		5D9FC1A421C115050067C65F /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FC1A321C115050067C65F /* AlbumDetailViewController.swift */; };
+		5D9FC1A821C11BD60067C65F /* AlbumWordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FC1A621C11BD60067C65F /* AlbumWordTableViewCell.swift */; };
+		5D9FC1A921C11BD60067C65F /* AlbumWordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9FC1A721C11BD60067C65F /* AlbumWordTableViewCell.xib */; };
 		6C22187321A4A1010046F5F4 /* StorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C22187221A4A1010046F5F4 /* StorageModel.swift */; };
 		6C4897FC21BD71830083ECC1 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4897FB21BD71830083ECC1 /* StorageService.swift */; };
 		6CD2045421BEE20C00625171 /* words.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 6CD2045321BEE20C00625171 /* words.sqlite */; };
@@ -88,6 +91,9 @@
 		5D97E4BE21BF968A00C2F79B /* ImageStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageService.swift; sourceTree = "<group>"; };
 		5D97E4C021BFA7C300C2F79B /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = MobileNet.mlmodel; path = Lingvinity/MobileNet.mlmodel; sourceTree = "<group>"; };
 		5D97E4C221BFD57800C2F79B /* PredictionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionService.swift; sourceTree = "<group>"; };
+		5D9FC1A321C115050067C65F /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
+		5D9FC1A621C11BD60067C65F /* AlbumWordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumWordTableViewCell.swift; sourceTree = "<group>"; };
+		5D9FC1A721C11BD60067C65F /* AlbumWordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumWordTableViewCell.xib; sourceTree = "<group>"; };
 		6C22187221A4A1010046F5F4 /* StorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageModel.swift; sourceTree = "<group>"; };
 		6C4897FB21BD71830083ECC1 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		6CD2045321BEE20C00625171 /* words.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = words.sqlite; sourceTree = "<group>"; };
@@ -180,9 +186,20 @@
 			path = LingvinityUITests;
 			sourceTree = "<group>";
 		};
+		5D9FC1A521C11B830067C65F /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				5D9FC1A321C115050067C65F /* AlbumDetailViewController.swift */,
+				5D9FC1A621C11BD60067C65F /* AlbumWordTableViewCell.swift */,
+				5D9FC1A721C11BD60067C65F /* AlbumWordTableViewCell.xib */,
+			);
+			name = Album;
+			sourceTree = "<group>";
+		};
 		5DC21EC0219C65230087ABFA /* Dictionary */ = {
 			isa = PBXGroup;
 			children = (
+				5D9FC1A521C11B830067C65F /* Album */,
 				1B26BFB82180F49100DF5325 /* DictionaryTabViewController.swift */,
 				5D3BA23221A56928002A1ECE /* CreateNewAlbumCollectionViewCell.swift */,
 				5D3BA23321A56928002A1ECE /* CreateNewAlbumCollectionViewCell.xib */,
@@ -330,6 +347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D9FC1A921C11BD60067C65F /* AlbumWordTableViewCell.xib in Resources */,
 				1B26BFC12180F49200DF5325 /* LaunchScreen.storyboard in Resources */,
 				6CD2045421BEE20C00625171 /* words.sqlite in Resources */,
 				1B26BFBE2180F49200DF5325 /* Assets.xcassets in Resources */,
@@ -412,12 +430,14 @@
 				1B26BFB52180F49100DF5325 /* AppDelegate.swift in Sources */,
 				5D3BA23421A56928002A1ECE /* CreateNewAlbumCollectionViewCell.swift in Sources */,
 				1B26BFE521905F4600DF5325 /* TrainingTabViewController.swift in Sources */,
+				5D9FC1A821C11BD60067C65F /* AlbumWordTableViewCell.swift in Sources */,
 				5D3BA23B21A586D9002A1ECE /* AlbumModel.swift in Sources */,
 				6C22187321A4A1010046F5F4 /* StorageModel.swift in Sources */,
 				1B26BFB72180F49100DF5325 /* AddWordTabViewController.swift in Sources */,
 				5D97E4C121BFA7C300C2F79B /* MobileNet.mlmodel in Sources */,
 				5D97E4BF21BF968A00C2F79B /* ImageStorageService.swift in Sources */,
 				6C4897FC21BD71830083ECC1 /* StorageService.swift in Sources */,
+				5D9FC1A421C115050067C65F /* AlbumDetailViewController.swift in Sources */,
 				5D97E4C321BFD57800C2F79B /* PredictionService.swift in Sources */,
 				1B26BFE721905FF800DF5325 /* SettingsTabViewController.swift in Sources */,
 			);
