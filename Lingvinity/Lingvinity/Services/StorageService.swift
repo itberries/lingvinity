@@ -22,7 +22,7 @@ class StorageService {
     //Колонки для таблицы words
     let wordId  = Expression<Int>("word_id")
     let wordValue = Expression<String>("word_value")
-    let image = Expression<String>("image")
+    let image = Expression<String?>("image")
     let wordDefinition = Expression<String>("word_definition")
     //-----------------------------------------
     
@@ -145,13 +145,15 @@ class StorageService {
     }
     
     //insert в таблицу groups -> наименование альбома на русском (альбом=группа)
-    func addValueToTableGroups(groupValue : String, groupCover : String?){
+    func addValueToTableGroups(groupValue : String, groupCover : String?) -> Int? {
         let insertGroupValue = self.groupsTable.insert(self.groupValue <- groupValue, self.groupCover <- groupCover)
         do{
-            try self.database.run(insertGroupValue)
+            let insertedId = try self.database.run(insertGroupValue)
             print("inserted group value")
+            return Int(insertedId)
         }catch{
             print(error)
+            return nil
         }
     }
     
@@ -167,24 +169,24 @@ class StorageService {
     }
     
     //Получить все альбомы по id альбома
-    func findAllWordsByAlbumId(groupId : Int ) -> [Int] {
-       var wordsIdArray = [Int]()
+    func findAllWordsByAlbumId(groupId : Int ) -> [WordModel] {
+       var wordsArray = [WordModel]()
        let query =  wordsTable
         .join(wordsToGroups, on: wordsTable[self.wordId] == wordsToGroups[self.wordId])
         .filter(wordsToGroups[self.groupId] ==  groupId)
         
-       do{
+       do {
             let result = try self.database.prepare(query)
             print("search all words by album id \(groupId)")
             for row in result {
                 print("word id = \(row[wordsTable[self.wordId]])")
-                //добавляем id слова в результирующий массив
-                wordsIdArray.append(row[wordsTable[self.wordId]])
+                let word = WordModel(value: row[wordsTable[self.wordValue]], translation: row[wordsTable[self.wordDefinition]], imageName: row[wordsTable[self.image]])
+                wordsArray.append(word)
             }
-        }catch{
+        } catch{
             print(error)
         }
-        return wordsIdArray
+        return wordsArray
     }
     
     //Показ содержимого таблицы words
@@ -224,7 +226,7 @@ class StorageService {
         do {
             let groups = try self.database.prepare(self.groupsTable)
             for group in groups{
-                let album = AlbumModel(name: group[self.groupValue], coverName: group[self.groupCover])
+                let album = AlbumModel(id: group[self.groupId], name: group[self.groupValue], coverName: group[self.groupCover])
                 albums.append(album)
             }
         } catch {

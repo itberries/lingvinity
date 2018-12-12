@@ -24,10 +24,10 @@ class AlbumWordTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func fillCell(with model: AlbumModel) { // TODO: change to WordModel
-        wordImageView.image = model.cover
-        valueLabel.text = model.name
-        translationLabel.text = model.name
+    func fillCell(with model: WordModel) { // TODO: change to WordModel
+        wordImageView.image = model.image
+        valueLabel.text = model.value
+        translationLabel.text = model.translation
     }
     
 }

@@ -35,9 +35,11 @@ class DictionaryTabViewController: UIViewController {
     }
     
     func saveNewAlbumToAlbums(newAlbum album: AlbumModel) {
-        self.albums.append(album)
-        databaseService.addValueToTableGroups(groupValue: album.name!, groupCover: album.coverName)
-        self.collectionView.reloadData()
+        if let id = databaseService.addValueToTableGroups(groupValue: album.name!, groupCover: album.coverName) {
+            album.id = id
+            self.albums.append(album)
+            self.collectionView.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
