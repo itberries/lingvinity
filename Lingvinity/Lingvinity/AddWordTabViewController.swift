@@ -18,7 +18,14 @@ class AddWordTabViewController :
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var recognitionResult: UILabel!
     
-    var model: Inceptionv3!
+    let imageStorage = ImageStorageService()
+    let predictionService = PredictionService()
+    let dataBaseService = StorageService()
+    
+    typealias Word = (value: String, translatedValue: String, imageName: String, image: UIImage)
+    
+    var selectedWord : Word?
+    var valyeAndTranslation: [(word: String, translation: String)] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +33,7 @@ class AddWordTabViewController :
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        model = Inceptionv3()
+        predictionService.loadModel()
     }
     
     @IBAction func openPhotoLibrary(_ sender: UIButton) {
@@ -51,6 +58,18 @@ class AddWordTabViewController :
         present(picker, animated: true, completion: nil)
     }
     
+    @IBAction func saveToDictionary(_ sender: Any) {
+        if (selectedWord != nil) {
+            if let wordId = dataBaseService.addValueToTableWords(wordValue: selectedWord!.value, wordDefinition: selectedWord!.translatedValue, image: selectedWord!.imageName) {
+                // MARK: помещаем в альбом Все
+                dataBaseService.addValueToTableWordsToGroups(wordId: wordId, groupId: 1)
+                imageStorage.save(image: selectedWord!.image, withName: selectedWord!.imageName)
+                print("Saved word '\(selectedWord!.value)' to dictionary")
+            } else {
+                print("Can't save word '\(selectedWord!.value)' to dictionary")
+            }
+        }
+    }
 }
 
 extension AddWordTabViewController : UIImagePickerControllerDelegate {
@@ -66,23 +85,55 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
             return
         }
         
-        let convertionResult = convertImageFormat(for: image)
-        if convertionResult == nil {
-            return
+        let predictionResult = predictionService.getTopPredictionResults(for: image)
+        if let convertedImage = predictionResult?.convertedImage, let predictions = predictionResult?.predictions {
+            
+            var wordsValues = [String]()
+            photoImageView.image = convertedImage
+            for (prediction, _) in zip(predictions, 1...5) {
+                wordsValues += prediction.0.components(separatedBy: ", ")
+            }
+            translateWords(wordsArray: wordsValues, finished:  { translatedValues in
+                for (word, translation) in zip(wordsValues, translatedValues) {
+                    self.valyeAndTranslation.append((word, translation))
+                }
+                DispatchQueue.main.async {
+                    self.recognitionResult.lineBreakMode = .byWordWrapping
+                    self.recognitionResult.numberOfLines = 0
+                    self.recognitionResult.text = self.valyeAndTranslation.first!.translation + " (" + self.valyeAndTranslation.first!.word + ")"
+                    self.recognitionResult.sizeToFit()
+                    
+                    let switchHight = 675
+                    
+                    self.addSwitchButton(xPos: 50, yPos: switchHight, text: "Left", buttonFunc: #selector(self.leftButtonAction))
+                    self.addSwitchButton(xPos: Int(UIScreen.main.bounds.width - 150)  , yPos: switchHight, text: "Right", buttonFunc: #selector(self.rightButtonAction))
+                }
+                // TODO: добавить выбор одного слова для сохранения в словарь из топ 5
+                // MARK: recognitionResult.text здесь - это выбранное пользователем слово
+                if let word = self.valyeAndTranslation.first {
+                    self.selectedWord = Word(value: word.word, translatedValue: word.translation, imageName: "1", image: convertedImage)
+                }
+            })
         }
+
+    }
+    
+    func addSwitchButton(xPos: Int, yPos: Int, text: String, buttonFunc: Selector) {
         
-        photoImageView.image = convertionResult?.newImage
+        let button = UIButton(frame: CGRect(x: xPos, y: yPos, width: 100, height: 50))
+        button.backgroundColor = .purple
+        button.setTitle(text, for: .normal)
+        button.addTarget(self, action: buttonFunc, for: .touchUpInside)
         
-        guard let prediction = try? model.prediction(image: (convertionResult?.pixelBuffer)!) else {
-            return
-        }
-        
-        //recognitionResult.text = "\(prediction.classLabel)."
-        let predictionString = "\(prediction.classLabel)."
-        let predictionArray = predictionString.components(separatedBy: ", ")
-        for word in predictionArray {
-            print(word)
-        }
+        self.view.addSubview(button)
+    }
+    
+    @objc func rightButtonAction(sender: UIButton!) {
+        print("Button tapped")
+    }
+    
+    @objc func leftButtonAction(sender: UIButton!) {
+        print("Button tapped")
     }
     
     func convertImageFormat(for image: UIImage) -> (newImage: UIImage, pixelBuffer: CVPixelBuffer)? {
@@ -115,6 +166,45 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
         photoImageView.image = newImage
         
         return (newImage, pixelBuffer!)
+	
+    }
+    
+    func translateWords(wordsArray: [String], finished: @escaping (([String]) -> Void)) {
+        let url = URL(string: "https://translate.yandex.net/api/v1.5/tr.json/translate?lang=ru&key=trnsl.1.1.20181205T100748Z.63ceec24b0413b7b.3da3dd7fc83a0cdcbb8bd4ae6a4d733316e054a9&")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        var postString = ""
+        for word in wordsArray {
+            postString += "&text=\(word)"
+        }
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                print("error=\(error)")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(response)")
+            }
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                let response = json as! NSDictionary
+                let text = response["text"] as! [String]
+                var translatedValues = [String]()
+                for value in text {
+                    translatedValues.append(value)
+                }
+                finished(translatedValues)
+            } catch {
+                print(error.localizedDescription)
+            }
+            
+        }
+        task.resume()
     }
     
 }

@@ -22,8 +22,13 @@
 		5D3BA23821A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3BA23621A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift */; };
 		5D3BA23921A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D3BA23721A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib */; };
 		5D3BA23B21A586D9002A1ECE /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3BA23A21A586D9002A1ECE /* AlbumModel.swift */; };
-		5D47CC5B21ADCD0300D655BD /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5D47CC5A21ADCD0300D655BD /* Inceptionv3.mlmodel */; };
+		5D97E4BF21BF968A00C2F79B /* ImageStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D97E4BE21BF968A00C2F79B /* ImageStorageService.swift */; };
+		5D97E4C121BFA7C300C2F79B /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5D97E4C021BFA7C300C2F79B /* MobileNet.mlmodel */; };
+		5D97E4C321BFD57800C2F79B /* PredictionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D97E4C221BFD57800C2F79B /* PredictionService.swift */; };
 		6C22187321A4A1010046F5F4 /* StorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C22187221A4A1010046F5F4 /* StorageModel.swift */; };
+		6C4897FC21BD71830083ECC1 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4897FB21BD71830083ECC1 /* StorageService.swift */; };
+		6CD2045421BEE20C00625171 /* words.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 6CD2045321BEE20C00625171 /* words.sqlite */; };
+		89BCB825896064DD1D388A31 /* Pods_Lingvinity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F825ED2A9199215F7EC731 /* Pods_Lingvinity.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +48,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6C48BC9221BDBE530083ECC1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		08F825ED2A9199215F7EC731 /* Pods_Lingvinity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lingvinity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B26BFB12180F49100DF5325 /* Lingvinity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lingvinity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B26BFB42180F49100DF5325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B26BFB62180F49100DF5325 /* AddWordTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordTabViewController.swift; sourceTree = "<group>"; };
@@ -60,13 +79,19 @@
 		1B26BFD82180F49200DF5325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B26BFE421905F4600DF5325 /* TrainingTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingTabViewController.swift; sourceTree = "<group>"; };
 		1B26BFE621905FF800DF5325 /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
+		59EA1B305C8F46DD98E5CA19 /* Pods-Lingvinity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingvinity.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lingvinity/Pods-Lingvinity.release.xcconfig"; sourceTree = "<group>"; };
 		5D3BA23221A56928002A1ECE /* CreateNewAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		5D3BA23321A56928002A1ECE /* CreateNewAlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateNewAlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		5D3BA23621A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		5D3BA23721A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DictionaryAlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		5D3BA23A21A586D9002A1ECE /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
-		5D47CC5A21ADCD0300D655BD /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
+		5D97E4BE21BF968A00C2F79B /* ImageStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageService.swift; sourceTree = "<group>"; };
+		5D97E4C021BFA7C300C2F79B /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = MobileNet.mlmodel; path = Lingvinity/MobileNet.mlmodel; sourceTree = "<group>"; };
+		5D97E4C221BFD57800C2F79B /* PredictionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionService.swift; sourceTree = "<group>"; };
 		6C22187221A4A1010046F5F4 /* StorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageModel.swift; sourceTree = "<group>"; };
+		6C4897FB21BD71830083ECC1 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		6CD2045321BEE20C00625171 /* words.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = words.sqlite; sourceTree = "<group>"; };
+		91CAC6DA397B69757DD3B306 /* Pods-Lingvinity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingvinity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lingvinity/Pods-Lingvinity.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89BCB825896064DD1D388A31 /* Pods_Lingvinity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,10 +123,14 @@
 		1B26BFA82180F49100DF5325 = {
 			isa = PBXGroup;
 			children = (
+				6CD2045321BEE20C00625171 /* words.sqlite */,
+				5D97E4C021BFA7C300C2F79B /* MobileNet.mlmodel */,
 				1B26BFB32180F49100DF5325 /* Lingvinity */,
 				1B26BFCA2180F49200DF5325 /* LingvinityTests */,
 				1B26BFD52180F49200DF5325 /* LingvinityUITests */,
 				1B26BFB22180F49100DF5325 /* Products */,
+				6C48BC0521BDBC1E0083ECC1 /* Frameworks */,
+				863CDAC1930C014A05C47461 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,6 +147,7 @@
 		1B26BFB32180F49100DF5325 /* Lingvinity */ = {
 			isa = PBXGroup;
 			children = (
+				6C4897FA21BD711C0083ECC1 /* Services */,
 				1B26BFBA2180F49100DF5325 /* Main.storyboard */,
 				1B26BFB42180F49100DF5325 /* AppDelegate.swift */,
 				1B26BFB62180F49100DF5325 /* AddWordTabViewController.swift */,
@@ -127,7 +158,6 @@
 				1B26BFBD2180F49200DF5325 /* Assets.xcassets */,
 				1B26BFBF2180F49200DF5325 /* LaunchScreen.storyboard */,
 				1B26BFC22180F49200DF5325 /* Info.plist */,
-				5D47CC5A21ADCD0300D655BD /* Inceptionv3.mlmodel */,
 			);
 			path = Lingvinity;
 			sourceTree = "<group>";
@@ -163,6 +193,33 @@
 			path = Dictionary;
 			sourceTree = "<group>";
 		};
+		6C4897FA21BD711C0083ECC1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6C4897FB21BD71830083ECC1 /* StorageService.swift */,
+				5D97E4BE21BF968A00C2F79B /* ImageStorageService.swift */,
+				5D97E4C221BFD57800C2F79B /* PredictionService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6C48BC0521BDBC1E0083ECC1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08F825ED2A9199215F7EC731 /* Pods_Lingvinity.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		863CDAC1930C014A05C47461 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				91CAC6DA397B69757DD3B306 /* Pods-Lingvinity.debug.xcconfig */,
+				59EA1B305C8F46DD98E5CA19 /* Pods-Lingvinity.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -170,9 +227,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B26BFDB2180F49200DF5325 /* Build configuration list for PBXNativeTarget "Lingvinity" */;
 			buildPhases = (
+				019B593198B6AE5E54436F1E /* [CP] Check Pods Manifest.lock */,
 				1B26BFAD2180F49100DF5325 /* Sources */,
 				1B26BFAE2180F49100DF5325 /* Frameworks */,
 				1B26BFAF2180F49100DF5325 /* Resources */,
+				6C48BC9221BDBE530083ECC1 /* Embed Frameworks */,
+				2B2FC209A8C0D14A46F1ABA3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -225,6 +285,9 @@
 		1B26BFA92180F49100DF5325 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "IT-Berries";
@@ -268,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B26BFC12180F49200DF5325 /* LaunchScreen.storyboard in Resources */,
+				6CD2045421BEE20C00625171 /* words.sqlite in Resources */,
 				1B26BFBE2180F49200DF5325 /* Assets.xcassets in Resources */,
 				1B26BFBC2180F49100DF5325 /* Main.storyboard in Resources */,
 				5D3BA23921A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib in Resources */,
@@ -291,6 +355,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		019B593198B6AE5E54436F1E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Lingvinity-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2B2FC209A8C0D14A46F1ABA3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Lingvinity/Pods-Lingvinity-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lingvinity/Pods-Lingvinity-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1B26BFAD2180F49100DF5325 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -301,10 +412,13 @@
 				1B26BFB52180F49100DF5325 /* AppDelegate.swift in Sources */,
 				5D3BA23421A56928002A1ECE /* CreateNewAlbumCollectionViewCell.swift in Sources */,
 				1B26BFE521905F4600DF5325 /* TrainingTabViewController.swift in Sources */,
-				5D47CC5B21ADCD0300D655BD /* Inceptionv3.mlmodel in Sources */,
 				5D3BA23B21A586D9002A1ECE /* AlbumModel.swift in Sources */,
 				6C22187321A4A1010046F5F4 /* StorageModel.swift in Sources */,
 				1B26BFB72180F49100DF5325 /* AddWordTabViewController.swift in Sources */,
+				5D97E4C121BFA7C300C2F79B /* MobileNet.mlmodel in Sources */,
+				5D97E4BF21BF968A00C2F79B /* ImageStorageService.swift in Sources */,
+				6C4897FC21BD71830083ECC1 /* StorageService.swift in Sources */,
+				5D97E4C321BFD57800C2F79B /* PredictionService.swift in Sources */,
 				1B26BFE721905FF800DF5325 /* SettingsTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,10 +592,12 @@
 		};
 		1B26BFDC2180F49200DF5325 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91CAC6DA397B69757DD3B306 /* Pods-Lingvinity.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 27C772W483;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Lingvinity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -489,6 +605,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = it.berries.Lingvinity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -496,10 +613,12 @@
 		};
 		1B26BFDD2180F49200DF5325 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59EA1B305C8F46DD98E5CA19 /* Pods-Lingvinity.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 27C772W483;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Lingvinity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -507,6 +626,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = it.berries.Lingvinity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
