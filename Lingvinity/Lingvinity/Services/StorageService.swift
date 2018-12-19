@@ -171,7 +171,7 @@ class StorageService {
         }
     }
     
-    //Получить все альбомы по id альбома
+    //Получить все слова по id альбома
     func findAllWordsByAlbumId(groupId : Int ) -> [WordModel] {
        var wordsArray = [WordModel]()
        let query =  wordsTable
@@ -183,7 +183,7 @@ class StorageService {
             print("search all words by album id \(groupId)")
             for row in result {
                 print("word id = \(row[wordsTable[self.wordId]])")
-                let word = WordModel(value: row[wordsTable[self.wordValue]], translation: row[wordsTable[self.wordDefinition]], imageName: row[wordsTable[self.image]])
+                let word = WordModel(id: row[wordsTable[self.wordId]], value: row[wordsTable[self.wordValue]], translation: row[wordsTable[self.wordDefinition]], imageName: row[wordsTable[self.image]])
                 wordsArray.append(word)
             }
         } catch{
@@ -191,6 +191,28 @@ class StorageService {
         }
         return wordsArray
     }
+    
+    //Получить все альбомы по id слова
+    func findAllAlbumsByWordId(wordId : Int ) -> [AlbumModel] {
+        var albumsArray = [AlbumModel]()
+        let query =  groupsTable
+            .join(wordsToGroups, on: groupsTable[self.groupId] == wordsToGroups[self.groupId])
+            .filter(wordsToGroups[self.wordId] ==  wordId)
+        
+        do {
+            let result = try self.database!.prepare(query)
+            print("search all albums by word id \(wordId)")
+            for row in result {
+                print("album id = \(row[groupsTable[self.groupId]])")
+                let album = AlbumModel(id: row[groupsTable[self.groupId]], name: row[groupsTable[self.groupValue]], coverName: row[groupsTable[self.groupCover]])
+                albumsArray.append(album)
+            }
+        } catch{
+            print(error)
+        }
+        return albumsArray
+    }
+    
     
     //Показ содержимого таблицы words
     func listWords() -> [(name: String, value: String)]  {

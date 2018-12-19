@@ -26,7 +26,9 @@ class AlbumsForWordViewController: UIViewController {
         
         databaseService = StorageService.sharedInstance
         
-        //albums = databaseService.findAllWordsByAlbumId(groupId: (self.album?.id)!)
+        albums = databaseService!.findAllAlbumsByWordId(wordId: (self.word?.id)!)
+        
+        print(albums)
         
         //wordsTableView.dataSource = self
         //wordsTableView.delegate = self

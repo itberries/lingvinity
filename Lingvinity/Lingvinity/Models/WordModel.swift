@@ -10,12 +10,14 @@ import Foundation
 import UIKit
 
 class WordModel {
+    var id : Int?
     var value : String?
     var translation : String?
-    var image: UIImage?
-    var imageName: String?
+    var image : UIImage?
+    var imageName : String?
     
-    init(value: String?, translation: String?, imageName: String?) {
+    init(id: Int?, value: String?, translation: String?, imageName: String?) {
+        self.id = id
         self.value = value
         self.translation = translation
         self.imageName = imageName

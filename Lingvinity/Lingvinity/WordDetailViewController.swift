@@ -29,4 +29,12 @@ class WordDetailViewController: UIViewController {
         }
         
     }
+    @IBAction func addWordToAlbums(_ sender: Any) {
+        performSegue(withIdentifier: "albumsForWordSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let albumsForWordController = segue.destination as? AlbumsForWordViewController else { return }
+        albumsForWordController.word = word
+    }
 }

@@ -678,6 +678,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="addWordToAlbums:" destination="4YU-mA-wF5" eventType="touchUpInside" id="z05-4a-RrD"/>
                                     <segue destination="Jg7-QJ-Dnq" kind="show" identifier="albumsForWordSegue" id="KZm-1h-hdR"/>
                                 </connections>
                             </button>

@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 class AlbumModel {
-    var id: Int?
-    var name: String?
-    var numberOfWords: Int?
-    var cover: UIImage?
-    var coverName: String?
+    var id : Int?
+    var name : String?
+    var numberOfWords : Int?
+    var cover : UIImage?
+    var coverName : String?
     
     init(name: String?, coverName: String? ) {
         self.name = name
