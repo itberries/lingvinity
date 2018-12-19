@@ -17,7 +17,7 @@ class AlbumsForWordViewController: UIViewController {
     
     var databaseService : StorageService?
     
-    let wordCellIdentifier = "AlbumWordTableViewCell"
+    @IBOutlet weak var albumsForWordTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,15 +26,47 @@ class AlbumsForWordViewController: UIViewController {
         
         databaseService = StorageService.sharedInstance
         
-        albums = databaseService!.findAllAlbumsByWordId(wordId: (self.word?.id)!)
+        albums = databaseService!.getAlbums()
+        selectedAlbums = databaseService!.findAllAlbumsByWordId(wordId: (self.word?.id)!)
+        print(selectedAlbums)
         
-        print(albums)
-        
-        //wordsTableView.dataSource = self
-        //wordsTableView.delegate = self
-        
-        //wordsTableView.register(UINib.init(nibName: "AlbumWordTableViewCell", bundle: nil), forCellReuseIdentifier: wordCellIdentifier)
-        
+        albumsForWordTableView.dataSource = self
+        albumsForWordTableView.delegate = self
+        albumsForWordTableView.allowsMultipleSelection = true
     }
 
 }
+
+extension AlbumsForWordViewController : UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return albums.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let album = self.albums[indexPath.row]
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        cell.textLabel?.text = album.name
+        if self.selectedAlbums.first(where: { return $0.id ==  albums[indexPath.row].id } ) != nil {
+            cell.isSelected = true
+        } else {
+            cell.isSelected = false
+        }
+        return cell
+    }
+    
+}
+
+extension AlbumsForWordViewController : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.selectedAlbums.first(where: { return $0.id ==  albums[indexPath.row].id } ) != nil {
+            self.selectedAlbums.removeAll(where: { return $0.id ==  albums[indexPath.row].id })
+        } else {
+            self.selectedAlbums.append(albums[indexPath.row])
+        }
+    }
+    
+}
+
+

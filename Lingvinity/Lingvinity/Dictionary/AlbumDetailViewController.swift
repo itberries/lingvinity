@@ -45,6 +45,7 @@ class AlbumDetailViewController: UIViewController {
 }
 
 extension AlbumDetailViewController : UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return words.count
     }
