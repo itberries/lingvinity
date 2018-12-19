@@ -132,7 +132,9 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
                     self.rightButton.isHidden = false
                 }
                 if let word = self.valyeAndTranslation.first {
-                    self.selectedWord = Word(value: word.word, translatedValue: word.translation, imageName: "1", image: convertedImage)
+                    let uuid = UUID().uuidString
+                    print("unique id for imageName: \(uuid)")
+                    self.selectedWord = Word(value: word.word, translatedValue: word.translation, imageName: uuid, image: convertedImage)
                     self.selectedWordIndex = 1
                 }
             })
