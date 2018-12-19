@@ -546,7 +546,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Dictionary" id="IfZ-e4-QZ5"/>
+                    <navigationItem key="navigationItem" title="Dictionary" id="IfZ-e4-QZ5">
+                        <barButtonItem key="rightBarButtonItem" title="Create album" id="tzC-v8-adv">
+                            <connections>
+                                <action selector="createAlbum:" destination="8rJ-Kc-sve" id="laD-Kf-CyK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="58o-gD-Edm" id="1kF-bQ-XCK"/>
                         <segue destination="uXS-Cl-C1N" kind="show" identifier="albumDetailSegue" id="jKV-9G-bRc"/>
