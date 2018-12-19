@@ -110,3 +110,19 @@ extension DictionaryTabViewController : UICollectionViewDelegate {
     }
     
 }
+
+extension DictionaryTabViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let height = self.view.frame.size.height
+        let width  = self.view.frame.size.width
+        var size : CGSize
+        if height < 700 {
+            size = CGSize(width: width * 0.4 , height: height * 0.31)
+        } else {
+            size = CGSize(width: width * 0.4 , height: height * 0.25)
+        }
+        return size
+    }
+    
+}
