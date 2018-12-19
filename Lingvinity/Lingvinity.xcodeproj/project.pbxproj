@@ -18,6 +18,7 @@
 		1B26BFE521905F4600DF5325 /* TrainingTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26BFE421905F4600DF5325 /* TrainingTabViewController.swift */; };
 		1B26BFE721905FF800DF5325 /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26BFE621905FF800DF5325 /* SettingsTabViewController.swift */; };
 		5D122A6E21C13FAA00A0F7BF /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D122A6D21C13FAA00A0F7BF /* WordModel.swift */; };
+		5D1D34B621CA625100FBDBC3 /* WordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D34B521CA625100FBDBC3 /* WordDetailViewController.swift */; };
 		5D3BA23821A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3BA23621A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift */; };
 		5D3BA23921A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D3BA23721A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib */; };
 		5D3BA23B21A586D9002A1ECE /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3BA23A21A586D9002A1ECE /* AlbumModel.swift */; };
@@ -83,6 +84,7 @@
 		1B26BFE621905FF800DF5325 /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
 		59EA1B305C8F46DD98E5CA19 /* Pods-Lingvinity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lingvinity.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lingvinity/Pods-Lingvinity.release.xcconfig"; sourceTree = "<group>"; };
 		5D122A6D21C13FAA00A0F7BF /* WordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
+		5D1D34B521CA625100FBDBC3 /* WordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailViewController.swift; sourceTree = "<group>"; };
 		5D3BA23621A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		5D3BA23721A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DictionaryAlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		5D3BA23A21A586D9002A1ECE /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
@@ -158,6 +160,8 @@
 				1B26BFB62180F49100DF5325 /* AddWordTabViewController.swift */,
 				1B26BFE621905FF800DF5325 /* SettingsTabViewController.swift */,
 				1B26BFE421905F4600DF5325 /* TrainingTabViewController.swift */,
+				5D9FC1A521C11B830067C65F /* Album */,
+				5D1D34B721CA625E00FBDBC3 /* Word */,
 				5DC21EC0219C65230087ABFA /* Dictionary */,
 				1B26BFBD2180F49200DF5325 /* Assets.xcassets */,
 				1B26BFBF2180F49200DF5325 /* LaunchScreen.storyboard */,
@@ -184,6 +188,14 @@
 			path = LingvinityUITests;
 			sourceTree = "<group>";
 		};
+		5D1D34B721CA625E00FBDBC3 /* Word */ = {
+			isa = PBXGroup;
+			children = (
+				5D1D34B521CA625100FBDBC3 /* WordDetailViewController.swift */,
+			);
+			name = Word;
+			sourceTree = "<group>";
+		};
 		5D9FC1A521C11B830067C65F /* Album */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,12 +204,12 @@
 				5D9FC1A721C11BD60067C65F /* AlbumWordTableViewCell.xib */,
 			);
 			name = Album;
+			path = Dictionary;
 			sourceTree = "<group>";
 		};
 		5DC21EC0219C65230087ABFA /* Dictionary */ = {
 			isa = PBXGroup;
 			children = (
-				5D9FC1A521C11B830067C65F /* Album */,
 				1B26BFB82180F49100DF5325 /* DictionaryTabViewController.swift */,
 				5D3BA23621A56992002A1ECE /* DictionaryAlbumCollectionViewCell.swift */,
 				5D3BA23721A56992002A1ECE /* DictionaryAlbumCollectionViewCell.xib */,
@@ -436,6 +448,7 @@
 				5D9FC1A821C11BD60067C65F /* AlbumWordTableViewCell.swift in Sources */,
 				5D3BA23B21A586D9002A1ECE /* AlbumModel.swift in Sources */,
 				5D122A6E21C13FAA00A0F7BF /* WordModel.swift in Sources */,
+				5D1D34B621CA625100FBDBC3 /* WordDetailViewController.swift in Sources */,
 				6C22187321A4A1010046F5F4 /* StorageModel.swift in Sources */,
 				1B26BFB72180F49100DF5325 /* AddWordTabViewController.swift in Sources */,
 				5D97E4C121BFA7C300C2F79B /* MobileNet.mlmodel in Sources */,

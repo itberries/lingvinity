@@ -598,11 +598,78 @@
                     </view>
                     <connections>
                         <outlet property="wordsTableView" destination="PIZ-Bb-qug" id="4eQ-hA-ipz"/>
+                        <segue destination="4YU-mA-wF5" kind="show" identifier="wordDetailSegue" id="rhy-Ck-Wo5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M8S-8n-htE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1706.4000000000001" y="486.94581280788179"/>
+            <point key="canvasLocation" x="1704" y="485"/>
+        </scene>
+        <!--Word Detail View Controller-->
+        <scene sceneID="y1P-OQ-h26">
+            <objects>
+                <viewController id="4YU-mA-wF5" customClass="WordDetailViewController" customModule="Lingvinity" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qkG-01-aUd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MAP-JB-Jqs">
+                                <rect key="frame" x="20" y="118" width="374" height="308"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WordLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5t1-K1-CCV">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="154"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TranslationLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Nm-Lu-ych">
+                                        <rect key="frame" x="0.0" y="154" width="374" height="154"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="5t1-K1-CCV" firstAttribute="top" secondItem="MAP-JB-Jqs" secondAttribute="top" id="3c2-Hb-JzN"/>
+                                    <constraint firstItem="5t1-K1-CCV" firstAttribute="leading" secondItem="MAP-JB-Jqs" secondAttribute="leading" id="Gqe-zs-Xu0"/>
+                                    <constraint firstItem="7Nm-Lu-ych" firstAttribute="top" secondItem="5t1-K1-CCV" secondAttribute="bottom" id="KVV-Ym-z8u"/>
+                                    <constraint firstAttribute="bottom" secondItem="7Nm-Lu-ych" secondAttribute="bottom" id="NH6-xh-e9r"/>
+                                    <constraint firstItem="7Nm-Lu-ych" firstAttribute="top" secondItem="5t1-K1-CCV" secondAttribute="bottom" id="VeR-Ra-QDo"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Nm-Lu-ych" secondAttribute="trailing" id="ZEF-Vv-F38"/>
+                                    <constraint firstAttribute="trailing" secondItem="5t1-K1-CCV" secondAttribute="trailing" id="eQd-xr-mVp"/>
+                                    <constraint firstItem="7Nm-Lu-ych" firstAttribute="leading" secondItem="MAP-JB-Jqs" secondAttribute="leading" id="sou-cq-5Bf"/>
+                                </constraints>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ofR-E1-BXW">
+                                <rect key="frame" x="95" y="436" width="224" height="224"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="224" id="1II-cF-2gK"/>
+                                    <constraint firstAttribute="width" constant="224" id="iMt-f2-ki4"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95733147860000001" green="0.92845243219999996" blue="0.97791987660000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ofR-E1-BXW" firstAttribute="top" relation="lessThanOrEqual" secondItem="MAP-JB-Jqs" secondAttribute="bottom" constant="10" id="O8j-42-3gL"/>
+                            <constraint firstItem="MAP-JB-Jqs" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Xn9-Ti-YCk" secondAttribute="leading" constant="20" id="Oto-Cq-FL8"/>
+                            <constraint firstItem="MAP-JB-Jqs" firstAttribute="top" relation="lessThanOrEqual" secondItem="Xn9-Ti-YCk" secondAttribute="top" constant="30" id="XPg-Kq-tS4"/>
+                            <constraint firstItem="ofR-E1-BXW" firstAttribute="centerY" secondItem="qkG-01-aUd" secondAttribute="centerY" constant="100" id="fHi-gg-6Og"/>
+                            <constraint firstItem="Xn9-Ti-YCk" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="MAP-JB-Jqs" secondAttribute="trailing" constant="20" id="kgv-lf-Hpa"/>
+                            <constraint firstItem="ofR-E1-BXW" firstAttribute="centerX" secondItem="qkG-01-aUd" secondAttribute="centerX" id="vKZ-DB-m8n"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Xn9-Ti-YCk"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="ofR-E1-BXW" id="Qwq-yB-sWg"/>
+                        <outlet property="translationValueLabel" destination="7Nm-Lu-ych" id="cSQ-rp-rJ7"/>
+                        <outlet property="wordValueLabel" destination="5t1-K1-CCV" id="IJO-Kt-wIg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TbT-LY-fJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2679.7101449275365" y="484.82142857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
