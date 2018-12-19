@@ -677,6 +677,9 @@
                                         <integer key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Jg7-QJ-Dnq" kind="show" identifier="albumsForWordSegue" id="KZm-1h-hdR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95733147860000001" green="0.92845243219999996" blue="0.97791987660000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -701,6 +704,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TbT-LY-fJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2679.7101449275365" y="484.82142857142856"/>
+        </scene>
+        <!--Albums For Word View Controller-->
+        <scene sceneID="Q6c-1M-Oad">
+            <objects>
+                <viewController id="Jg7-QJ-Dnq" customClass="AlbumsForWordViewController" customModule="Lingvinity" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BxP-SU-kIs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="71k-vC-c5T">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OSJ-al-gHv">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OSJ-al-gHv" id="osj-ZX-eyk">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="71k-vC-c5T" firstAttribute="top" secondItem="PQi-uo-AfS" secondAttribute="top" id="3XD-gB-tH2"/>
+                            <constraint firstItem="71k-vC-c5T" firstAttribute="leading" secondItem="PQi-uo-AfS" secondAttribute="leading" id="4n8-er-OLc"/>
+                            <constraint firstItem="PQi-uo-AfS" firstAttribute="bottom" secondItem="71k-vC-c5T" secondAttribute="bottom" id="cKD-bB-4cE"/>
+                            <constraint firstItem="PQi-uo-AfS" firstAttribute="trailing" secondItem="71k-vC-c5T" secondAttribute="trailing" id="j5f-7N-6c6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PQi-uo-AfS"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4W0-Rk-SiT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3686" y="485"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
