@@ -32,7 +32,7 @@ class TrainingTabViewController: UIViewController {
     @IBOutlet weak var scoreGame: UILabel!
     let storage = StorageModel()
     
-    let dataBaseService = StorageService()//сервис для работы с базой данных
+    var dataBaseService : StorageService? //сервис для работы с базой данных
     
     func runTimer() {
         seconds = 10
@@ -67,7 +67,8 @@ class TrainingTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Список всех записей из БД с названиями групп/названий альбомов
-        dataBaseService.listGroups()
+        dataBaseService = StorageService.sharedInstance
+        dataBaseService!.listGroups()
     }
   
     @objc func updateTimer() {

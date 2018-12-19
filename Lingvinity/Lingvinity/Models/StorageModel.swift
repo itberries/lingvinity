@@ -11,13 +11,14 @@ import UIKit
 class StorageModel{
 
     
-    let dataBaseService = StorageService()//сервис для работы с базой данных
+    var dataBaseService : StorageService//сервис для работы с базой данных
     
     var gameWordBatch1:[(name: String, value: String)] = []
     var gameWordBatch:[(name: String, value: String)] = [] //с перемешенными словами
     var correctWordBatch = [String : String]()
     
     init()  {
+        dataBaseService = StorageService.sharedInstance
         gameWordBatch1 = dataBaseService.listWords()
         var  tempArray = [String] ()
         for batch in gameWordBatch1 {
