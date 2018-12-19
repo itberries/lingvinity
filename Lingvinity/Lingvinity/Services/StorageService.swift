@@ -12,8 +12,8 @@ import SQLite
 // Сервис для работы с базой данных
 class StorageService {
 
-    
-    var database : Connection!
+    static let sharedInstance = StorageService()
+    let database: Connection?
     
     
     //-----------------------------------------
@@ -43,30 +43,33 @@ class StorageService {
     let wordGroupId  = Expression<Int>("word_group_id")
     //-----------------------------------------
     
-    //Констуктор без параметров
-    init()  {
-        initDataBaseWork()
-    }
     
- 
-    
-    
-    //Необходимые действия по установке соединения с БД
-    func initDataBaseWork(){
-        do {
-          
-            let fileUrl = Bundle.main.path(forResource: "words", ofType: "sqlite")
-            //создаем соединение с базой данных
-            let database = try Connection(fileUrl ?? "words.sqlite")
-            //print(fileUrl ?? "words.sqlite")
-            self.database = database
-        } catch  {
-            print(error)
+    private init() {
+        
+        let dbBundlePath = Bundle.main.path(forResource: "words", ofType: "sqlite")
+        let destPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let fileManager = FileManager.default
+        let fullDestPath = URL(fileURLWithPath: destPath).appendingPathComponent("dbwords.sqlite")
+        if fileManager.fileExists(atPath: fullDestPath.path) {
+            print("Database file is exist")
+            print(fileManager.fileExists(atPath: dbBundlePath!))
+        } else {
+            do {
+                try fileManager.copyItem(atPath: dbBundlePath!, toPath: fullDestPath.path)
+            } catch {
+                print("\n",error)
+            }
         }
-     
+        print("path: \(fullDestPath.path)")
+        
+        do {
+            database = try Connection(fullDestPath.path)
+        } catch _ {
+            database = nil
+            print("database init connection nil")
+        }
+        print("database init finish ok")
     }
-    
-  
     
     //Таблица уже создана
     func createTableWords() { // [wordId | wordValue| wordDefinition]
@@ -78,7 +81,7 @@ class StorageService {
             table.column(self.wordDefinition)
         }
         do{
-            try self.database.run(createTable)
+            try self.database!.run(createTable)
             print("Created Table Words")
         }catch{
             print(error)
@@ -90,7 +93,7 @@ class StorageService {
         print("ADD NEW COLUMN TABLE")
         let image  = Expression<String?>("image")
         do{
-            try self.database.run(self.wordsTable.addColumn(image))
+            try self.database!.run(self.wordsTable.addColumn(image))
             print("Add new Column to Table Words")
         }catch{
             print(error)
@@ -106,7 +109,7 @@ class StorageService {
             table.column(self.groupValue)
         }
         do{
-            try self.database.run(createTable)
+            try self.database!.run(createTable)
             print("Created Table Groups")
         }catch{
             print(error)
@@ -123,7 +126,7 @@ class StorageService {
             table.column(self.wordId)
         }
         do{
-            try self.database.run(createTable)
+            try self.database!.run(createTable)
             print("Created Table Words to Groups")
         }catch{
             print(error)
@@ -135,7 +138,7 @@ class StorageService {
         let insertWord = self.wordsTable.insert(self.wordValue <- wordValue, self.wordDefinition <- wordDefinition, self.image <- image)
         
         do{
-            let insertedId = try self.database.run(insertWord)
+            let insertedId = try self.database!.run(insertWord)
             print("inserted word with id \(insertedId)")
             return Int(insertedId)
         }catch{
@@ -148,7 +151,7 @@ class StorageService {
     func addValueToTableGroups(groupValue : String, groupCover : String?) -> Int? {
         let insertGroupValue = self.groupsTable.insert(self.groupValue <- groupValue, self.groupCover <- groupCover)
         do{
-            let insertedId = try self.database.run(insertGroupValue)
+            let insertedId = try self.database!.run(insertGroupValue)
             print("inserted group value")
             return Int(insertedId)
         }catch{
@@ -161,7 +164,7 @@ class StorageService {
     func addValueToTableWordsToGroups(wordId : Int, groupId : Int){
         let insertGroupValue = self.wordsToGroups.insert(self.groupId <- groupId, self.wordId <- wordId)
         do{
-            try self.database.run(insertGroupValue)
+            try self.database!.run(insertGroupValue)
             print("inserted groupId and wordId values to words_to_group table")
         }catch{
             print(error)
@@ -176,7 +179,7 @@ class StorageService {
         .filter(wordsToGroups[self.groupId] ==  groupId)
         
        do {
-            let result = try self.database.prepare(query)
+            let result = try self.database!.prepare(query)
             print("search all words by album id \(groupId)")
             for row in result {
                 print("word id = \(row[wordsTable[self.wordId]])")
@@ -194,10 +197,10 @@ class StorageService {
         print("LIST WORDS TAPPED")
         var gameWordBatch:[(name: String, value: String)] = []
         do{
-            let words = try self.database.prepare(self.wordsTable)
+            let words = try self.database!.prepare(self.wordsTable)
             for word in words{
-                print("wordId: \(word[self.wordId]), word: \(word[self.wordValue]), definition: \(word[self.wordDefinition])")
-                 gameWordBatch += [(name: word[self.wordValue], value: word[self.wordDefinition])]
+                //print("wordId: \(word[self.wordId]), word: \(word[self.wordValue]), definition: \(word[self.wordDefinition])")
+                gameWordBatch += [(name: word[self.wordValue], value: word[self.wordDefinition])]
             }
         }catch{
             print(error)
@@ -210,7 +213,7 @@ class StorageService {
         print("LIST GROUPS TAPPED")
         
         do {
-            let groups = try self.database.prepare(self.groupsTable)
+            let groups = try self.database!.prepare(self.groupsTable)
             for group in groups{
                 print("groupId: \(group[self.groupId]), group value: \(group[self.groupValue]), group cover name: \(String(describing: group[self.groupCover]))")
             }
@@ -224,7 +227,7 @@ class StorageService {
         print("GET ALBUMS")
         var albums = [AlbumModel]()
         do {
-            let groups = try self.database.prepare(self.groupsTable)
+            let groups = try self.database!.prepare(self.groupsTable)
             for group in groups{
                 let album = AlbumModel(id: group[self.groupId], name: group[self.groupValue], coverName: group[self.groupCover])
                 albums.append(album)
@@ -244,7 +247,7 @@ class StorageService {
          let updateUser = word.update(self.wordDefinition<-wordDefinition, self.wordValue<-wordValue)
          
          do{
-            try self.database.run(updateUser)
+            try self.database!.run(updateUser)
             print("word updated")
          }catch{
             print(error)

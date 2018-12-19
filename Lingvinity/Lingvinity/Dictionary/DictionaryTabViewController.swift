@@ -13,7 +13,7 @@ class DictionaryTabViewController: UIViewController {
     let dictionaryAlbumCellIdentifier = "dictionaryAlbumCollectionViewCell"
     let createNewAlbumCellIdentifier = "createNewAlbumCollectionViewCell"
     
-    let databaseService = StorageService()
+    var databaseService : StorageService?
     let imageStorage = ImageStorageService()
     
     var albums = [AlbumModel]()
@@ -24,8 +24,9 @@ class DictionaryTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.databaseService = StorageService.sharedInstance
         
-        albums = databaseService.getAlbums()
+        albums = databaseService!.getAlbums()
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -35,7 +36,7 @@ class DictionaryTabViewController: UIViewController {
     }
     
     func saveNewAlbumToAlbums(newAlbum album: AlbumModel) {
-        if let id = databaseService.addValueToTableGroups(groupValue: album.name!, groupCover: album.coverName) {
+        if let id = databaseService!.addValueToTableGroups(groupValue: album.name!, groupCover: album.coverName) {
             album.id = id
             self.albums.append(album)
             self.collectionView.reloadData()
