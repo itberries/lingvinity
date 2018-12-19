@@ -43,12 +43,7 @@ class StorageService {
     let wordGroupId  = Expression<Int>("word_group_id")
     //-----------------------------------------
     
-    //Констуктор без параметров
-//    init()  {
-//        initDataBaseWork()
-//    }
     
- 
     private init() {
         
         let dbBundlePath = Bundle.main.path(forResource: "words", ofType: "sqlite")
@@ -66,18 +61,6 @@ class StorageService {
             }
         }
         print("path: \(fullDestPath.path)")
-    
-        /*
-        var path = "words.sqlite"
-        
-        if let dirs: [NSString] =
-            NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,
-                                                FileManager.SearchPathDomainMask.allDomainsMask, true) as [NSString] {
-            
-            let dir = dirs[0]
-            path = dir.appendingPathComponent("words.sqlite");
-            print("path: \(path)")
-        }*/
         
         do {
             database = try Connection(fullDestPath.path)
@@ -87,24 +70,6 @@ class StorageService {
         }
         print("database init finish ok")
     }
-    
-    
-    //Необходимые действия по установке соединения с БД
-//    func initDataBaseWork(){
-//        do {
-//
-//            let fileUrl = Bundle.main.path(forResource: "words", ofType: "sqlite")
-//            //создаем соединение с базой данных
-//            let database = try Connection(fileUrl ?? "words.sqlite")
-//            //print(fileUrl ?? "words.sqlite")
-//            self.database = database
-//        } catch  {
-//            print(error)
-//        }
-//
-//    }
-    
-  
     
     //Таблица уже создана
     func createTableWords() { // [wordId | wordValue| wordDefinition]
