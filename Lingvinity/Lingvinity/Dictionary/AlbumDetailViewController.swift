@@ -14,7 +14,7 @@ class AlbumDetailViewController: UIViewController {
     var album : AlbumModel?
     var words = [WordModel]() // TODO: change to WordModel
     
-    let databaseService = StorageService()
+    var databaseService : StorageService?
     
     let wordCellIdentifier = "AlbumWordTableViewCell"
     
@@ -22,10 +22,12 @@ class AlbumDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         self.title = "\(album!.name ?? "")"
         
-        words = databaseService.findAllWordsByAlbumId(groupId: (self.album?.id)!) // TODO: change to getWords
+        databaseService = StorageService.sharedInstance
+        
+        words = databaseService!.findAllWordsByAlbumId(groupId: (self.album?.id)!) // TODO: change to getWords
         
         wordsTableView.dataSource = self
         wordsTableView.delegate = self

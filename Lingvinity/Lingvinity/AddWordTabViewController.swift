@@ -24,7 +24,7 @@ class AddWordTabViewController :
     
     let imageStorage = ImageStorageService()
     let predictionService = PredictionService()
-    let dataBaseService = StorageService()
+    var dataBaseService : StorageService?
     
     typealias Word = (value: String, translatedValue: String, imageName: String, image: UIImage)
     
@@ -35,6 +35,7 @@ class AddWordTabViewController :
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        dataBaseService = StorageService.sharedInstance
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,9 +63,9 @@ class AddWordTabViewController :
     
     @IBAction func saveToDictionary(_ sender: Any) {
         if (selectedWord != nil) {
-            if let wordId = dataBaseService.addValueToTableWords(wordValue: selectedWord!.value, wordDefinition: selectedWord!.translatedValue, image: selectedWord!.imageName) {
+            if let wordId = dataBaseService!.addValueToTableWords(wordValue: selectedWord!.value, wordDefinition: selectedWord!.translatedValue, image: selectedWord!.imageName) {
                 // MARK: помещаем в альбом Все
-                dataBaseService.addValueToTableWordsToGroups(wordId: wordId, groupId: 1)
+                dataBaseService!.addValueToTableWordsToGroups(wordId: wordId, groupId: 1)
                 imageStorage.save(image: selectedWord!.image, withName: selectedWord!.imageName)
                 print("Saved word '\(selectedWord!.value)' to dictionary")
             } else {
@@ -133,7 +134,7 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
                 }
                 if let word = self.valyeAndTranslation.first {
                     let uuid = UUID().uuidString
-                    print("unique id for imageName: \(uuid)")
+                    // print("unique id for imageName: \(uuid)")
                     self.selectedWord = Word(value: word.word, translatedValue: word.translation, imageName: uuid, image: convertedImage)
                     self.selectedWordIndex = 1
                 }
