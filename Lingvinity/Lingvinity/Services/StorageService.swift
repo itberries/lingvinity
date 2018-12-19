@@ -50,13 +50,13 @@ class StorageService {
         let destPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         let fileManager = FileManager.default
         let fullDestPath = URL(fileURLWithPath: destPath).appendingPathComponent("dbwords.sqlite")
-        if fileManager.fileExists(atPath: fullDestPath.path){
+        if fileManager.fileExists(atPath: fullDestPath.path) {
             print("Database file is exist")
             print(fileManager.fileExists(atPath: dbBundlePath!))
-        }else{
-            do{
+        } else {
+            do {
                 try fileManager.copyItem(atPath: dbBundlePath!, toPath: fullDestPath.path)
-            }catch{
+            } catch {
                 print("\n",error)
             }
         }
@@ -199,8 +199,8 @@ class StorageService {
         do{
             let words = try self.database!.prepare(self.wordsTable)
             for word in words{
-                print("wordId: \(word[self.wordId]), word: \(word[self.wordValue]), definition: \(word[self.wordDefinition])")
-                 gameWordBatch += [(name: word[self.wordValue], value: word[self.wordDefinition])]
+                //print("wordId: \(word[self.wordId]), word: \(word[self.wordValue]), definition: \(word[self.wordDefinition])")
+                gameWordBatch += [(name: word[self.wordValue], value: word[self.wordDefinition])]
             }
         }catch{
             print(error)

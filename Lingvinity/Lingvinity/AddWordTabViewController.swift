@@ -134,7 +134,7 @@ extension AddWordTabViewController : UIImagePickerControllerDelegate {
                 }
                 if let word = self.valyeAndTranslation.first {
                     let uuid = UUID().uuidString
-                    print("unique id for imageName: \(uuid)")
+                    // print("unique id for imageName: \(uuid)")
                     self.selectedWord = Word(value: word.word, translatedValue: word.translation, imageName: uuid, image: convertedImage)
                     self.selectedWordIndex = 1
                 }
