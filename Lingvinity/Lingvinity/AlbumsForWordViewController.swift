@@ -15,7 +15,7 @@ class AlbumsForWordViewController: UIViewController {
     var albums = [AlbumModel]()
     var selectedAlbums = [AlbumModel]()
     
-    let databaseService : StorageService?
+    var databaseService : StorageService?
     
     let wordCellIdentifier = "AlbumWordTableViewCell"
     
@@ -23,6 +23,8 @@ class AlbumsForWordViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "Select albums.."
+        
+        databaseService = StorageService.sharedInstance
         
         //albums = databaseService.findAllWordsByAlbumId(groupId: (self.album?.id)!)
         

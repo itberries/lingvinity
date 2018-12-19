@@ -17,8 +17,6 @@ class WordDetailViewController: UIViewController {
     @IBOutlet weak var translationValueLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
-    let databaseService = StorageService()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
