@@ -24,7 +24,6 @@ class WordModel {
         if imageName != nil {
             if let image = imageStorage.getImage(withName: imageName!) {
                 self.image = image
-                print("image found")
             } else {
                 print("Can't find word image with imageName \(imageName!)")
                 self.image = UIImage(named: "albumCover")
@@ -32,6 +31,5 @@ class WordModel {
         } else {
             self.image = UIImage(named: "albumCover")
         }
-        print("word created")
     }
 }
