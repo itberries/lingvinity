@@ -12,7 +12,8 @@ import UIKit
 class AlbumDetailViewController: UIViewController {
     
     var album : AlbumModel?
-    var words = [WordModel]() // TODO: change to WordModel
+    var words = [WordModel]()
+    var selectedWord : WordModel?
     
     var databaseService : StorageService?
     
@@ -36,9 +37,15 @@ class AlbumDetailViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let wordDetailController = segue.destination as? WordDetailViewController else { return }
+        wordDetailController.word = selectedWord
+    }
+    
 }
 
 extension AlbumDetailViewController : UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return words.count
     }
@@ -56,6 +63,11 @@ extension AlbumDetailViewController : UITableViewDataSource {
 }
 
 extension AlbumDetailViewController : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedWord = self.words[indexPath.row]
+        performSegue(withIdentifier: "wordDetailSegue", sender: self)
+    }
     
 }
 
